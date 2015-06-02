@@ -6,6 +6,15 @@ You put the lime in the coconut and shake it all up!
 * Solarized for Gnome :  https://github.com/Anthony25/gnome-terminal-colors-solarized
 * TMUX: https://gist.github.com/diginc/8531848
 
+### WebDev Specific  Tool:
+* http-server: https://github.com/indexzero/http-server 
+* Ruby: http://sass-lang.com/install
+* SASS: http://sass-lang.com/install
+* Compass: http://thesassway.com/beginner/getting-started-with-sass-and-compass
+* css_parser: http://thesassway.com/beginner/getting-started-with-sass-and-compass
+* http-server: https://github.com/indexzero/http-server 
+
+
 ### Note:
 * Username/Password: vagrant/vagrant
 * Root Username/Password: root/VAGRANT
