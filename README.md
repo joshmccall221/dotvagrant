@@ -15,8 +15,8 @@ You put the lime in the coconut and shake it all up!
 
 
 # Getting Started:
-## Add the vagrant box if you do not already have it: 
+### Add the vagrant box if you do not already have it: 
 * vagrant box add pussinboots/ubuntu-truly-full
 
-## Run this ;)
+### Run this: 
 git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && vagrant up
