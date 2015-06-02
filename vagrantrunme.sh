@@ -1,6 +1,6 @@
 #!/bin/bash
 #Dependencies
-apt-get -y install ubuntu-desktop
+#apt-get -y install ubuntu-desktop
  echo 'cd /home/vagrant'
  cd /home/vagrant
  
