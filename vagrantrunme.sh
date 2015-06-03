@@ -92,7 +92,7 @@
    echo '#  http-server: npm install http-server -g       #'
    echo '##################################################'
    cd /home/vagrant
-   npm install http-server -g
+   sudo npm install http-server -g
   
   
    sudo apt-get update > /dev/null 2>&1
