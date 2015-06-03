@@ -6,6 +6,9 @@
   echo '######################################'
 
    sudo apt-get update > /dev/null 2>&1
+  echo '##########################################'
+  echo '#    sudo apt-get install ubuntu-desktop #'
+  echo '##########################################'
    apt-get -y install ubuntu-desktop
  
    echo 'cd /home/vagrant'
@@ -82,7 +85,7 @@
    
    cd /home/vagrant
    curl -sL https://deb.nodesource.com/setup | sudo bash -
-   sudo apt-get install -y nodejs
+   sudo apt-get -y install  nodejs
   
   sudo apt-get update > /dev/null 2>&1
    echo '##################################################'
@@ -94,33 +97,21 @@
   
    sudo apt-get update > /dev/null 2>&1
     echo '########################################################'
-    echo '#  Ruby: apt-get install rbenv                         #'
+    echo '#  Ruby:                                               #'
     echo '#  SASS:  su -c "gem install sass" vagrant             #'
     echo '#  Compass:  su -c "gem install comapass" vagrant      #'
     echo '#  css_parser:  su -c "gem install css_parser" vagrant #'
     echo '########################################################'
     cd /home/vagrant
     echo '#  Ruby: apt-get install rbenv                         #'
-    echo '#  Ruby: apt-get install rbenv                         #'
-    echo '#  Ruby: apt-get install rbenv                         #'
-    echo '#  Ruby: apt-get install rbenv                         #'
     #sudo apt-get -y install rbenv 
     sudo wget --no-check-certificate https://raw.githubusercontent.com/joshfng/railsready/master/railsready.sh && echo 1 | bash  railsready.sh
-    echo '#  SASS:  su -c "gem install sass" vagrant             #'
-    echo '#  SASS:  su -c "gem install sass" vagrant             #'
-    echo '#  SASS:  su -c "gem install sass" vagrant             #'
     echo '#  SASS:  su -c "gem install sass" vagrant             #'
    sudo apt-get update > /dev/null 2>&1
     sudo su -c "gem install sass" 
     echo '#  Compass:  su -c "gem install comapass" vagrant      #'
-    echo '#  Compass:  su -c "gem install comapass" vagrant      #'
-    echo '#  Compass:  su -c "gem install comapass" vagrant      #'
-    echo '#  Compass:  su -c "gem install comapass" vagrant      #'
    sudo apt-get update > /dev/null 2>&1
     sudo su -c "gem install compass"  
-    echo '#  css_parser:  su -c "gem install css_parser" vagrant #'
-    echo '#  css_parser:  su -c "gem install css_parser" vagrant #'
-    echo '#  css_parser:  su -c "gem install css_parser" vagrant #'
     echo '#  css_parser:  su -c "gem install css_parser" vagrant #'
    sudo apt-get update > /dev/null 2>&1
     sudo su -c "gem install css_parser" 
@@ -128,8 +119,8 @@
    
    sudo apt-get update > /dev/null 2>&1
    echo '##########################################################'
-   echo '#  http-server :  curl https://npmjs.org/install.sh | sh #'
-   echo '#                    && npm install http-server -g       #'
+   echo '#  http-server :                                         #'
+   echo '#                                                        #'
    echo '##########################################################'
    cd /home/vagrant
    sudo su -c "sudo gem install SimpleHTTPServer --pre" vagrant 
