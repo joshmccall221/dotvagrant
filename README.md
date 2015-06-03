@@ -34,3 +34,4 @@ git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && 
 #### Resources:
 * https://atlas.hashicorp.com/
 * http://askubuntu.com/questions/53822/how-do-you-run-ubuntu-server-with-a-gui
+* http://www.devopsbookmarks.com/
