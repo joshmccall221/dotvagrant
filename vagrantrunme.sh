@@ -9,7 +9,8 @@
   echo '##########################################'
   echo '#    sudo apt-get install ubuntu-desktop #'
   echo '##########################################'
-   apt-get -y install ubuntu-desktop
+   apt-get -y install gnome-session-fallback
+   #apt-get -y install ubuntu-desktop
  
    echo 'cd /home/vagrant'
    cd /home/vagrant
