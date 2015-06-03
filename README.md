@@ -8,10 +8,10 @@ You put the lime in the coconut and shake it all up!
 
 ### WebDev Specific  Tool:
 * http-server: https://github.com/indexzero/http-server 
-* Ruby: http://sass-lang.com/install
 * SASS: http://sass-lang.com/install
 * Compass: http://thesassway.com/beginner/getting-started-with-sass-and-compass
 * css_parser: http://thesassway.com/beginner/getting-started-with-sass-and-compass
+** Ruby: https://github.com/joshfng/railsready
 * http-server: https://github.com/indexzero/http-server 
 
 
