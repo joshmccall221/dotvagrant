@@ -1,8 +1,10 @@
 #!/bin/bash
 #Dependencies
+  
   echo '######################################'
   echo '#    sudo apt-get update             #'
   echo '######################################'
+
    sudo apt-get update > /dev/null 2>&1
    apt-get -y install ubuntu-desktop
  
@@ -10,8 +12,8 @@
    cd /home/vagrant
  
   
-  echo whoami
-  whoami
+   echo whoami
+   whoami
   
     echo 'sudo apt-get -y install git curl vim vim-nox tmux'
     sudo apt-get -y install git curl vim vim-nox tmux
