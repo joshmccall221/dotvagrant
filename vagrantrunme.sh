@@ -10,7 +10,7 @@
   echo '#    sudo apt-get install ubuntu-desktop #'
   echo '##########################################'
    apt-get -y install gnome-shell
-   #apt-get -y install ubuntu-desktop
+   apt-get -y install ubuntu-desktop
  
    echo 'cd /home/vagrant'
    cd /home/vagrant
@@ -45,7 +45,14 @@
      
      echo 'cd /home/vagrant'
      cd /home/vagrant
-     
+
+     wget –no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
+     mv dircolors.ansi-dark ~/.dircolors
+     eval dircolors ~/.dircolors
+
+
+     echo 'cd /home/vagrant'
+     cd /home/vagrant
      echo '######################################'
      echo '#   Solarized for vim                #'
      echo '######################################'
