@@ -1,6 +1,21 @@
 # dotvagrant
 You put the lime in the coconut and shake it all up!
 
+## Included with Laravel Homestead:
+* Ubuntu 14.04
+* PHP 5.6
+* HHVM
+* Nginx
+* MySQL
+* Postgres
+* Node (With Bower, Grunt, and Gulp)
+* Redis
+* Memcached
+* Beanstalkd
+* Laravel Envoy
+* Blackfire Profiler
+http://laravel.com/docs/5.0/homestead 
+
 ## Included:
 * spf13: https://github.com/spf13/spf13-vim
 * Solarized for Gnome :  https://github.com/Anthony25/gnome-terminal-colors-solarized

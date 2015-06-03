@@ -1,8 +1,8 @@
 #!/bin/bash
-#Dependencies
-  
+
+
   echo '######################################'
-  echo '#    sudo apt-get update             #'
+  echo '# Dependencies:  sudo apt-get update #'
   echo '######################################'
 
    sudo apt-get update > /dev/null 2>&1
@@ -124,3 +124,22 @@
    echo '##########################################################'
    cd /home/vagrant
    sudo su -c "sudo gem install SimpleHTTPServer --pre" vagrant 
+
+
+ echo '##########################################################'
+ echo '#  Laravel/Homstead user logon:                                         #'
+ echo '##########################################################'
+ echo 'greeter-show-manual-login=true' >> /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+
+ echo '##########################################################'
+  echo '# Guest Additions:                                       #'
+  echo '##########################################################'
+  echo 'greeter-show-manual-login=true' >> /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+   sudo apt-get -y install linux-headers-generic build-essential dkms
+   wget http://dlc-cdn.sun.com/virtualbox/4.3.28/VBoxGuestAdditions_4.3.28.iso
+   sudo mkdir /media/VBoxGuestAdditions
+   sudo mount -o loop,ro VBoxGuestAdditions_4.3.28.iso /media/VBoxGuestAdditions
+   sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
+   rm VBoxGuestAdditions_4.3.28.iso
+   sudo umount /media/VBoxGuestAdditions
+   sudo rmdir /media/VBoxGuestAdditions
