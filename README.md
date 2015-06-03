@@ -30,3 +30,7 @@ You put the lime in the coconut and shake it all up!
 
 ### Run this: 
 git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && vagrant up
+
+#### Resources:
+* https://atlas.hashicorp.com/
+* http://askubuntu.com/questions/53822/how-do-you-run-ubuntu-server-with-a-gui
