@@ -1,6 +1,8 @@
 #!/bin/bash
 #Dependencies
-  echo 'sudo apt-get update'
+  echo '######################################'
+  echo '#    sudo apt-get update             #'
+  echo '######################################'
    sudo apt-get update > /dev/null 2>&1
    apt-get -y install ubuntu-desktop
  
@@ -15,7 +17,7 @@
     sudo apt-get -y install git curl vim vim-nox tmux
     
     
-     scho '######################################'
+     echo '######################################'
      echo '#   Solarized for vim and terminal   #'
      echo '######################################'
      
@@ -128,5 +130,4 @@
    echo '#                    && npm install http-server -g       #'
    echo '##########################################################'
    cd /home/vagrant
-   # sudo su -c "curl https://npmjs.org/install.sh | sh && sudo npm install http-server -g " vagrant 
-   sudo su -c "sudo npm install http-server -g " vagrant 
+   sudo su -c "sudo gem install SimpleHTTPServer --pre" vagrant 

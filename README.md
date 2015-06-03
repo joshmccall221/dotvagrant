@@ -11,8 +11,9 @@ You put the lime in the coconut and shake it all up!
 * SASS: http://sass-lang.com/install
 * Compass: http://thesassway.com/beginner/getting-started-with-sass-and-compass
 * css_parser: http://thesassway.com/beginner/getting-started-with-sass-and-compass
-** Ruby: https://github.com/joshfng/railsready
-* http-server: https://github.com/indexzero/http-server 
+* SimpleHTTPServer: https://rubygems.org/gems/SimpleHTTPServer
+ * Ruby: https://github.com/joshfng/railsready
+
 
 
 ### Note:
