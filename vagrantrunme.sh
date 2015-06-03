@@ -71,6 +71,7 @@ cd /home/vagrant
    echo 'tm' >> /home/vagrant/.bashrc 
    source /home/vagrant/.bashrc 
  
+  sudo apt-get update
   echo '#################################################################'
   echo '#  NPM: curl -sL https://deb.nodesource.com/setup | sudo bash - #'
   echo '#################################################################'
@@ -79,6 +80,7 @@ cd /home/vagrant
   curl -sL https://deb.nodesource.com/setup | sudo bash -
   sudo apt-get install -y nodejs
  
+  sudo apt-get update
   echo '##################################################'
   echo '#  http-server: npm install http-server -g       #'
   echo '##################################################'
@@ -86,6 +88,7 @@ cd /home/vagrant
   npm install http-server -g
  
  
+  sudo apt-get update
    echo '########################################################'
    echo '#  Ruby: apt-get install rbenv                         #'
    echo '#  SASS:  su -c "gem install sass" vagrant             #'
@@ -96,6 +99,7 @@ cd /home/vagrant
    apt-get install rbenv && sudo su -c "gem install sass" && sudo su -c "gem install compass" && sudo su -c "gem install css_parser" 
   
   
+  sudo apt-get update
   echo '##########################################################'
   echo '#  http-server :  curl https://npmjs.org/install.sh | sh #'
   echo '#                    && npm install http-server -g       #'
