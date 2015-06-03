@@ -1,6 +1,20 @@
 # dotvagrant
 You put the lime in the coconut and shake it all up!
 
+## Motivation / About
+To be able to have a consistant "portable" work environment with familiar tools anywhere you go. Starting with Laravel/Homestead, you can toggle features in the provisioning script (vagrantrunme.sh). 
+
+
+
+### Note:
+* Username/Password: vagrant/vagrant
+* Root Username/Password: root/VAGRANT
+* mounted folders:
+ * /vagrant/ => mounts 'dotvagrant'
+ * /vagrant-data/ => mounts '..' or the parent of 'dotvagrat'
+* gui - gnome-session-fallback
+
+
 ## Included with Laravel Homestead:
 * Ubuntu 14.04
 * PHP 5.6
@@ -16,7 +30,8 @@ You put the lime in the coconut and shake it all up!
 * Blackfire Profiler
 http://laravel.com/docs/5.0/homestead 
 
-## Included:
+## Included Extras:
+### Essentials:
 * spf13: https://github.com/spf13/spf13-vim
 * Solarized for Gnome :  https://github.com/Anthony25/gnome-terminal-colors-solarized
 * TMUX: https://gist.github.com/diginc/8531848
@@ -31,17 +46,12 @@ http://laravel.com/docs/5.0/homestead
 
 
 
-### Note:
-* Username/Password: vagrant/vagrant
-* Root Username/Password: root/VAGRANT
-* /vagrant/ mounts 'dotvagrant'
-* /vagrant-data/ mounts '..' or the parent of 'dotvagrat'
 
 
 
 # Getting Started:
 ### Add the vagrant box if you do not already have it: 
-* vagrant box add pussinboots/ubuntu-truly-full
+* vagrant box add laravel/homestead
 
 ### Run this: 
 git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && vagrant up
