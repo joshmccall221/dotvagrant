@@ -1,8 +1,4 @@
 #!/bin/bash
-#cd
-#wget --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
-#mv dircolors.ansi-dark .dircolors
-#eval `dircolors ~/.dircolors`
 
 
   echo '######################################'
@@ -38,7 +34,7 @@
      echo '######################################'
      echo '#   Solarized for terminal           #'
      echo '######################################'
-     
+    sudo apt-get install dconf-cli 
      echo 'cd ./gnome-terminal-colors-solarized'
      cd ./gnome-terminal-colors-solarized
      echo 'sudo chmod +755 *.sh'
@@ -47,6 +43,11 @@
      echo ' ./install.sh -s dark -p Default'
      su -c "./install.sh -s dark -p Default" vagrant
      
+     cd
+     wget --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
+     mv dircolors.ansi-dark .dircolors
+     eval `dircolors ~/.dircolors`
+
      echo 'cd /home/vagrant'
      cd /home/vagrant
 
