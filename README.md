@@ -41,7 +41,7 @@ http://laravel.com/docs/5.0/homestead
 * SASS: http://sass-lang.com/install
 * Compass: http://thesassway.com/beginner/getting-started-with-sass-and-compass
 * css_parser: http://thesassway.com/beginner/getting-started-with-sass-and-compass
-* SimpleHTTPServer: https://rubygems.org/gems/SimpleHTTPServer
+* SimpleHTTPServer: https://www.npmjs.com/package/simplehttpserver
  * Ruby: https://github.com/joshfng/railsready
 
 
