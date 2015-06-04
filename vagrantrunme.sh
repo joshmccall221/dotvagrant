@@ -1,32 +1,31 @@
 #!/bin/bash
 
+    echo '######################################'
+    echo '# Dependencies:  sudo apt-get update #'
+    echo '######################################'
+    sudo apt-get update > /dev/null 2>&1
+    echo '##########################################'
+    echo '#    sudo apt-get install ubuntu-desktop #'
+    echo '##########################################'
+    apt-get -y install gnome-shell > /dev/null 2>&1
+    #apt-get -y install ubuntu-desktop > /dev/null 2>&1
+    echo '##########################################'
+    echo '# cd /home/vagrant'
+    echo '# whoami'
+    echo '##########################################'
+    cd /home/vagrant
+    whoami
 
-  echo '######################################'
-  echo '# Dependencies:  sudo apt-get update #'
-  echo '######################################'
+    echo '##########################################'
+    echo '# sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome'
+    echo '##########################################'
+    sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome > /dev/null 2>&1
 
-   sudo apt-get update > /dev/null 2>&1
-  echo '##########################################'
-  echo '#    sudo apt-get install ubuntu-desktop #'
-  echo '##########################################'
-   apt-get -y install gnome-shell
-   apt-get -y install ubuntu-desktop
- 
-   echo 'cd /home/vagrant'
-   cd /home/vagrant
- 
-  
-   echo whoami
-   whoami
-  
-    echo 'sudo apt-get -y install git curl vim vim-nox tmux'
-    sudo apt-get -y install git curl vim vim-nox vim-gnome tmux
-    
-    
+
      echo '######################################'
      echo '#   Solarized for vim and terminal   #'
      echo '######################################'
-     
+
      if [ ! -d "./gnome-terminal-colors-solarized"  ]; then
          echo 'sudo git clone https://github.com/Anthony25/gnome-terminal-colors-solarized'
          su -c "git clone https://github.com/Anthony25/gnome-terminal-colors-solarized" vagrant
@@ -34,15 +33,15 @@
      echo '######################################'
      echo '#   Solarized for terminal           #'
      echo '######################################'
-    sudo apt-get install dconf-cli 
+    sudo apt-get install dconf-cli > /dev/null 2>&1
      echo 'cd ./gnome-terminal-colors-solarized'
      cd ./gnome-terminal-colors-solarized
      echo 'sudo chmod +755 *.sh'
      sudo chmod +755 *.sh
-     
+
      echo ' ./install.sh -s dark -p Default'
      su -c "./install.sh -s dark -p Default" vagrant
-     
+
      cd
      wget --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
      mv dircolors.ansi-dark .dircolors
@@ -62,10 +61,10 @@
      echo '#   Solarized for vim                #'
      echo '######################################'
      if [ ! -f spf13.vim.sh ]; then
-        su -c " curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh" vagrant
+        su -c " curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh > /dev/null 2>&1" vagrant
      fi
      echo 'echo color sol >> /home/vagrant/.vimrc'
-     echo 'color sol' >> /home/vagrant/.vimrc
+     echo 'color solarized' >> /home/vagrant/.vimrc
      echo 'set background=dark' >> /home/vagrant/.vimrc
  
     
@@ -100,14 +99,15 @@
    
    cd /home/vagrant
    curl -sL https://deb.nodesource.com/setup | sudo bash -
-   sudo apt-get -y install  nodejs
+   sudo apt-get -y install  nodejs > /dev/null 2>&1
   
   sudo apt-get update > /dev/null 2>&1
    echo '##################################################'
    echo '#  http-server: npm install http-server -g       #'
    echo '##################################################'
    cd /home/vagrant
-   sudo npm install http-server -g
+   sudo npm install http-server -g > /dev/null 2>&1
+
   
   
    sudo apt-get update > /dev/null 2>&1
@@ -138,7 +138,7 @@
    echo '#                                                        #'
    echo '##########################################################'
    cd /home/vagrant
-   sudo su -c "sudo gem install SimpleHTTPServer --pre" vagrant 
+   sudo su -c "sudo gem install SimpleHTTPServer --pre > /dev/null 2>&1" vagrant 
 
 
  echo '##########################################################'
@@ -150,8 +150,8 @@
   echo '# Guest Additions:                                       #'
   echo '##########################################################'
   echo 'greeter-show-manual-login=true' >> /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
-   sudo apt-get -y install linux-headers-generic build-essential dkms
-   wget http://dlc-cdn.sun.com/virtualbox/4.3.28/VBoxGuestAdditions_4.3.28.iso
+   sudo apt-get -y install linux-headers-generic build-essential dkms > /dev/null 2>&1
+   wget http://dlc-cdn.sun.com/virtualbox/4.3.28/VBoxGuestAdditions_4.3.28.iso > /dev/null 2>&1
    sudo mkdir /media/VBoxGuestAdditions
    sudo mount -o loop,ro VBoxGuestAdditions_4.3.28.iso /media/VBoxGuestAdditions
    sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
