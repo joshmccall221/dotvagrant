@@ -62,3 +62,4 @@ git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && 
 * http://www.devopsbookmarks.com/
 * https://github.com/dotless-de/vagrant-vbguest
 * http://docs.vagrantup.com/v2/virtualbox/boxes.html
+* https://gist.github.com/fundon/1150782
