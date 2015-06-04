@@ -5,7 +5,6 @@ You put the lime in the coconut and shake it all up!
 To be able to have a consistant "portable" work environment with familiar tools anywhere you go. Starting with Laravel/Homestead, you can toggle features in the provisioning script (vagrantrunme.sh). 
 
 
-
 ### Note:
 * Username/Password: vagrant/vagrant
 * Root Username/Password: root/VAGRANT
@@ -43,8 +42,6 @@ http://laravel.com/docs/5.0/homestead
 * css_parser: http://thesassway.com/beginner/getting-started-with-sass-and-compass
 * SimpleHTTPServer: https://www.npmjs.com/package/simplehttpserver
  * Ruby: https://github.com/joshfng/railsready
-
-
 
 
 
