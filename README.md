@@ -63,7 +63,7 @@ git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && 
 * https://github.com/dotless-de/vagrant-vbguest
 * http://docs.vagrantup.com/v2/virtualbox/boxes.html
 * https://gist.github.com/fundon/1150782
-
+* http://blog.csanchez.org/2012/05/03/automatically-download-and-install-virtualbox-guest-additions-in-vagrant/
 
 
 ###Centos
