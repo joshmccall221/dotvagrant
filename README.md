@@ -54,7 +54,7 @@ http://laravel.com/docs/5.0/homestead
 * vagrant box add laravel/homestead
 
 ### Run this: 
-git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && vagrant up
+git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && vagrant up && vargrant reload
 
 #### Resources:
 * https://atlas.hashicorp.com/
