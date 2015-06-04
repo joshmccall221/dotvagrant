@@ -60,3 +60,5 @@ git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && 
 * https://atlas.hashicorp.com/
 * http://askubuntu.com/questions/53822/how-do-you-run-ubuntu-server-with-a-gui
 * http://www.devopsbookmarks.com/
+* https://github.com/dotless-de/vagrant-vbguest
+* http://docs.vagrantup.com/v2/virtualbox/boxes.html
