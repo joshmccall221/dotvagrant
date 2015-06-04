@@ -63,3 +63,8 @@ git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && 
 * https://github.com/dotless-de/vagrant-vbguest
 * http://docs.vagrantup.com/v2/virtualbox/boxes.html
 * https://gist.github.com/fundon/1150782
+<!--
+Centos:
+* http://apetec.com/linux/InstallVIM.htm
+* https://gist.github.com/fundon/1150782
+-->
