@@ -1,4 +1,8 @@
 #!/bin/bash
+#cd
+#wget --no-check-certificate https://raw.github.com/seebi/dircolors-solarized/master/dircolors.ansi-dark
+#mv dircolors.ansi-dark .dircolors
+#eval `dircolors ~/.dircolors`
 
 
   echo '######################################'
@@ -20,7 +24,7 @@
    whoami
   
     echo 'sudo apt-get -y install git curl vim vim-nox tmux'
-    sudo apt-get -y install git curl vim vim-nox tmux
+    sudo apt-get -y install git curl vim vim-nox vim-gnome tmux
     
     
      echo '######################################'
@@ -61,6 +65,8 @@
      fi
      echo 'echo color sol >> /home/vagrant/.vimrc'
      echo 'color sol' >> /home/vagrant/.vimrc
+     echo 'set background=dark' >> /home/vagrant/.vimrc
+ 
     
     
     echo '##################################################'
