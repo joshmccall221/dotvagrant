@@ -71,8 +71,9 @@ Vagrant.configure(2) do |config|
   # config.vm.provision "shell", inline: <<-SHELL
   #.
   #.
-  config.vm.provision "shell", path: "vagrantrunme.sh"
   #
+  config.vm.provision "shell", path: "vagrantrunme.sh"
+  #config.vm.provision "shell", path: "guestadditions.sh"
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL

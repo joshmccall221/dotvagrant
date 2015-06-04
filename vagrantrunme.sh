@@ -6,16 +6,19 @@ echo '######################################'
 echo '##########################################'
 echo '# sudo apt-get install GUI               #'
 echo '##########################################'
-    apt-get -y install gnome-shell > /dev/null 2>&1
+    apt-get -y install lightdm > /dev/null 2>&1
+#    apt-get -y install gnome-shell > /dev/null 2>&1
 # apt-get -y install ubuntu-desktop > /dev/null 2>&1
  echo '##########################################################'
  echo '# Guest Additions:                                       #'
  echo '##########################################################'
-     sudo apt-get install linux-headers-generic build-essential dkms
-     sudo mount /dev/cdrom /media/cdrom
-     sudo sh /media/cdrom/VBoxLinuxAdditions.run
-     echo '##########################################################'
-     sudo ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions 
+        sudo apt-get install linux-headers-generic build-essential dkms
+        wget http://dlc-cdn.sun.com/virtualbox/4.3.10/VBoxGuestAdditions_4.3.10.iso
+        sudo mkdir /media/VBoxGuestAdditions
+        sudo mount -o loop,ro VBoxGuestAdditions_4.3.10.iso /media/VBoxGuestAdditions/
+        sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
+ echo '##########################################################'
+#     sudo ln -s /opt/VBoxGuestAdditions-4.3.10/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions 
 #    echo 'greeter-show-manual-login=true' >> /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
 #    sudo apt-get -y install linux-headers-generic build-essential dkms > /dev/null 2>&1
 #    wget http://dlc-cdn.sun.com/virtualbox/4.3.28/VBoxGuestAdditions_4.3.28.iso > /dev/null 2>&1
