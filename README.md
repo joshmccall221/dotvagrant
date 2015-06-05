@@ -2,17 +2,18 @@
 You put the lime in the coconut and shake it all up!
 
 ## Motivation / About
-To be able to have a consistant "portable" work environment with familiar tools anywhere you go. Starting with Laravel/Homestead, you can toggle features in the provisioning script (vagrantrunme.sh). 
+To be able to have a consistent "portable" work environment with familiar tools anywhere you go. Starting with Laravel/Homestead, you can toggle features in the provisioning script (vagrantrunme.sh). 
 
 
 ### Note:
 * Username/Password: vagrant/vagrant
 * Root Username/Password: root/VAGRANT
 * mounted folders:
+ * /user_home => mounts host home directory
  * /vagrant/ => mounts 'dotvagrant'
  * /vagrant-data/ => mounts '..' or the parent of 'dotvagrat'
-* gui - gnome-session-fallback
-
+* gui - gnome-shell
+* vb.memory = "5025"
 
 ## Included with Laravel Homestead:
 * Ubuntu 14.04
@@ -43,13 +44,7 @@ http://laravel.com/docs/5.0/homestead
 * SimpleHTTPServer: https://www.npmjs.com/package/simplehttpserver
  * Ruby: https://github.com/joshfng/railsready
 
-
-
-
 # Getting Started:
-### Add the vagrant box if you do not already have it: 
-* vagrant box add laravel/homestead
-
 ### Run this: 
 git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && vagrant up && vargrant reload
 
@@ -61,7 +56,7 @@ git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && 
 * http://docs.vagrantup.com/v2/virtualbox/boxes.html
 * https://gist.github.com/fundon/1150782
 * http://blog.csanchez.org/2012/05/03/automatically-download-and-install-virtualbox-guest-additions-in-vagrant/
-https://github.com/mitchellh/vagrant/issues/3341
+* https://github.com/mitchellh/vagrant/issues/3341
 
 
 ###Centos
