@@ -13,13 +13,13 @@ echo '##########################################'
 echo '##########################################################'
 echo '# Guest Additions:                                       #'
 echo '##########################################################'
-     sudo apt-get -y install linux-headers-$(uname -r) build-essential dkms
+     sudo apt-get -y install linux-headers-$(uname -r) build-essential dkms > /dev/null 2>&1
        #sudo apt-get -y install linux-headers-generic linux-headers-$(uname -r) build-essential dkms
      sudo ln -s /opt/VBoxGuestAdditions-4.3.28/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions 
-     wget http://dlc-cdn.sun.com/virtualbox/4.3.28/VBoxGuestAdditions_4.3.28.iso
+     wget http://dlc-cdn.sun.com/virtualbox/4.3.28/VBoxGuestAdditions_4.3.28.iso > /dev/null 2>&1
      sudo mkdir /media/VBoxGuestAdditions
      sudo mount -o loop,ro VBoxGuestAdditions_4.3.28.iso /media/VBoxGuestAdditions/
-     sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run
+     sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run > /dev/null 2>&1
 echo '##########################################'
 echo '# cd /home/vagrant'
 echo '# whoami'
@@ -28,9 +28,13 @@ echo '##########################################'
     echo ' whoami'
     whoami
 echo '##########################################'
-echo '# sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome chromium-browser'
+echo '# sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome google-chrome'
 echo '##########################################'
-     sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome chromium-browser > /dev/null 2>&1
+     sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome  > /dev/null 2>&1
+     cd /tmp
+     wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb > /dev/null 2>&1
+     sudo dpkg -i google-chrome-stable_current_i386.deb > /dev/null 2>&1
+     sudo apt-get -f install > /dev/null 2>&1
 echo '######################################'
 echo '#   Solarized for vim and terminal   #'
 echo '######################################'
