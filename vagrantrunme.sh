@@ -135,3 +135,5 @@
  echo '#  Laravel/Homstead user logon:                                         #'
  echo '##########################################################'
      echo 'greeter-show-manual-login=true' >> /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
+     echo 'Thats all folks!'
+     exit
