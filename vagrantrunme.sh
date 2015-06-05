@@ -1,4 +1,5 @@
 #!/bin/bash
+date1=$(date +"%s")
 echo '######################################'
 echo '# Dependencies:  sudo apt-get update #'
 echo '######################################'
@@ -20,6 +21,7 @@ echo '##########################################################'
      sudo mkdir /media/VBoxGuestAdditions
      sudo mount -o loop,ro VBoxGuestAdditions_4.3.28.iso /media/VBoxGuestAdditions/
      sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run > /dev/null 2>&1
+
 echo '##########################################'
 echo '# cd /home/vagrant'
 echo '# whoami'
@@ -131,4 +133,6 @@ echo '#  Laravel/Homstead user logon:                                         #'
 echo '##########################################################'
      echo 'greeter-show-manual-login=true' >> /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
      echo 'Thats all folks!'
+    diff=$(($date2-$date1))
+    echo "$(($diff / 60)) minutes and $(($diff % 60)) seconds elapsed."
 exit
