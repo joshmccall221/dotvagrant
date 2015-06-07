@@ -40,13 +40,15 @@ echo '##########################################'
     echo ' whoami'
     whoami
 echo '##########################################'
+echo '# Essentials                             #'
 echo '# sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome google-chrome'
 echo '##########################################'
       sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome  # > /dev/null 2>&1
-#     cd /tmp
-#     wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb # > /dev/null 2>&1
-#     sudo dpkg -i google-chrome-stable_current_i386.deb # > /dev/null 2>&1
-#     sudo apt-get -y -f install # > /dev/null 2>&1
+      cd /tmp
+      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      sudo dpkg -i google-chrome-stable_current_amd64.deb
+      sudo apt-get -f -y install
+      cd /home/vagrant
  echo '######################################'
  echo '#   Solarized for vim and terminal   #'
  echo '######################################'
