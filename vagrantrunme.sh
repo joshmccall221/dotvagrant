@@ -2,25 +2,27 @@
 date1=$(date +"%s")
  echo '######################################'
  echo '# Dependencies:  sudo apt-get update #'
+ echo '# Dependencies:  sudo apt-get pv     #'
  echo '######################################'
      sudo apt-get update > /dev/null 2>&1
+     sudo apt-get -y install pv > /dev/null 2>&1
  echo '##########################################'
  echo '# sudo apt-get install GUI               #'
  echo '##########################################'
-      apt-get -y install gnome-shell # > /dev/null 2>&1
+      sudo pv | apt-get -y install gnome-shell # > /dev/null 2>&1
  #    apt-get -y install lightdm #> /dev/null 2>&1
  #       echo 'greeter-show-manual-login=true' >> /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
  #    apt-get -y install ubuntu-desktop > /dev/null 2>&1
  echo '##########################################################'
  echo '# Guest Additions:                                       #'
  echo '##########################################################'
-      sudo apt-get -y install linux-headers-$(uname -r) build-essential dkms > /dev/null 2>&1
+      sudo pv | sudo apt-get -y install linux-headers-$(uname -r) build-essential dkms > /dev/null 2>&1
         #sudo apt-get -y install linux-headers-generic linux-headers-$(uname -r) build-essential dkms
-      sudo ln -s /opt/VBoxGuestAdditions-4.3.28/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions 
+      sudo pv | sudo ln -s /opt/VBoxGuestAdditions-4.3.28/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions 
       wget http://dlc-cdn.sun.com/virtualbox/4.3.28/VBoxGuestAdditions_4.3.28.iso > /dev/null 2>&1
-      sudo mkdir /media/VBoxGuestAdditions
-      sudo mount -o loop,ro VBoxGuestAdditions_4.3.28.iso /media/VBoxGuestAdditions/
-      sudo sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run > /dev/null 2>&1
+      sudo pv | sudo  mkdir /media/VBoxGuestAdditions
+      sudo pv | sudo  mount -o loop,ro VBoxGuestAdditions_4.3.28.iso /media/VBoxGuestAdditions/
+      sudo pv | sudo  sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run > /dev/null 2>&1
 
 echo '##########################################'
 echo '# cd /home/vagrant'
@@ -32,17 +34,17 @@ echo '##########################################'
 echo '##########################################'
 echo '# sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome google-chrome'
 echo '##########################################'
-     sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome  > /dev/null 2>&1
-     cd /tmp
-     wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb > /dev/null 2>&1
-     sudo dpkg -i google-chrome-stable_current_i386.deb > /dev/null 2>&1
-     sudo apt-get -y -f install > /dev/null 2>&1
+#     sudo |sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome  > /dev/null 2>&1
+#     cd /tmp
+#     wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb > /dev/null 2>&1
+#     sudo pv | sudo dpkg -i google-chrome-stable_current_i386.deb > /dev/null 2>&1
+#     sudo pv | sudo apt-get -y -f install > /dev/null 2>&1
  echo '######################################'
  echo '#   Solarized for vim and terminal   #'
  echo '######################################'
      if [ ! -d "./gnome-terminal-colors-solarized"  ]; then
          echo 'sudo git clone https://github.com/Anthony25/gnome-terminal-colors-solarized'
-         su -c "git clone https://github.com/Anthony25/gnome-terminal-colors-solarized" vagrant
+         su -c "sudo pv | git clone https://github.com/Anthony25/gnome-terminal-colors-solarized" vagrant
      fi
  echo '######################################'
  echo '#   Solarized for terminal           #'
@@ -93,9 +95,21 @@ echo '##########################################'
       sudo apt-get update > /dev/null 2>&1
 echo '###################################################'
 echo '#   zsh: https://github.com/sorin-ionescu/prezto  #'
-#echo '###################################################'
-#     sudo apt-get -y install zsh
-#     zsh
+echo '###################################################'
+#http://codurance.com/2015/03/16/installing-zprezto-a-quick-guide/
+#      sudo apt-get -y install zsh
+#      zsh
+#      git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+# 
+#      setopt EXTENDED_GLOB
+#        for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+#            ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+#      done
+#      chsh -s /bin/zsh
+##########################################################
+#     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+#     setopt EXTENDED_GLOB
+#     for rcfile in
 #     sudo usermod -s $(which zsh) $USER 
 #     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 #        setopt EXTENDED_GLOB
