@@ -4,6 +4,12 @@ date1=$(date +"%s")
  echo '# Dependencies:  sudo apt-get update #'
  echo '######################################'
      sudo apt-get update  # > /dev/null 2>&1
+ echo '##########################################'
+ echo '# sudo apt-get install GUI               #'
+ echo '##########################################'
+      apt-get -y install gnome-shell # > /dev/null 2>&1
+ #    apt-get -y install lightdm #> /dev/null 2>&1
+ #    apt-get -y install ubuntu-desktop > /dev/null 2>&1
  echo '##########################################################'
  echo '# Guest Additions:                                       #'
  echo '##########################################################'
@@ -14,12 +20,6 @@ date1=$(date +"%s")
       sudo  mkdir /media/VBoxGuestAdditions
       sudo  mount -o loop,ro VBoxGuestAdditions_4.3.28.iso /media/VBoxGuestAdditions/
       sudo  sh /media/VBoxGuestAdditions/VBoxLinuxAdditions.run # > /dev/null 2>&1
- echo '##########################################'
- echo '# sudo apt-get install GUI               #'
- echo '##########################################'
-      apt-get -y install gnome-shell # > /dev/null 2>&1
- #    apt-get -y install lightdm #> /dev/null 2>&1
- #    apt-get -y install ubuntu-desktop > /dev/null 2>&1
 echo '##########################################################'
 echo '#  Laravel/Homstead user logon:                          #'
 echo '##########################################################'
@@ -105,28 +105,17 @@ echo '##########################################'
 echo '###################################################'
 echo '#   zsh: https://github.com/sorin-ionescu/prezto  #'
 echo '###################################################'
-#http://codurance.com/2015/03/16/installing-zprezto-a-quick-guide/
-#      sudo apt-get -y install zsh
-#      zsh
-#      git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-# 
-#      setopt EXTENDED_GLOB
-#        for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-#            ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-#      done
-#      chsh -s /bin/zsh
-##########################################################
-#     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-#     setopt EXTENDED_GLOB
-#     for rcfile in
-#     sudo usermod -s $(which zsh) $USER 
-#     git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-#        setopt EXTENDED_GLOB
-#            for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-#              ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-#        done
-#     chsh -s /bin/zsh
-#     #curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+     #http://codurance.com/2015/03/16/installing-zprezto-a-quick-guide/
+     sudo apt-get -y install zsh
+     if [ ! -f /home/vagrant/.zshrc ]; then
+     touch /home/vagrant/.zshrc
+     fi
+     sudo rm  -R ~/.z*
+     zsh -c 'git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"'
+     zsh -c 'setopt EXTENDED_GLOB
+       for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+           ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+     done'
 echo '#################################################################'
 echo '#  NPM: curl -sL https://deb.nodesource.com/setup | sudo bash - #'
 echo '#################################################################'
