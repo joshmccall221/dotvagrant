@@ -57,7 +57,8 @@ git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && 
 * https://gist.github.com/fundon/1150782
 * http://blog.csanchez.org/2012/05/03/automatically-download-and-install-virtualbox-guest-additions-in-vagrant/
 * https://github.com/mitchellh/vagrant/issues/3341
-
+#### zsh powerlines:
+https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme
 
 ###Centos
 * http://apetec.com/linux/InstallVIM.htm
