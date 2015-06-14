@@ -4,12 +4,6 @@ date1=$(date +"%s")
  echo '# Dependencies:  sudo apt-get update #'
  echo '######################################'
      sudo apt-get update  # > /dev/null 2>&1
- echo '##########################################'
- echo '# sudo apt-get install GUI               #'
- echo '##########################################'
-      apt-get -y install gnome-shell # > /dev/null 2>&1
- #    apt-get -y install lightdm #> /dev/null 2>&1
- #    apt-get -y install ubuntu-desktop > /dev/null 2>&1
  echo '##########################################################'
  echo '# Guest Additions:                                       #'
  echo '##########################################################'
@@ -43,7 +37,6 @@ echo '##########################################'
 echo '# Essentials                             #'
 echo '# sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome google-chrome'
 echo '##########################################'
-     sudo apt-get -y install git curl vim vim-nox tmux gnome-terminal vim-gnome
 #     cd /tmp
 #     wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb > /dev/null 2>&1
 #     sudo dpkg -i google-chrome-stable_current_i386.deb > /dev/null 2>&1
