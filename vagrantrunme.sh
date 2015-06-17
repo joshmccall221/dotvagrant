@@ -15,7 +15,7 @@ date1=$(date +"%s")
  echo '##########################################################'
       sudo apt-get -y install linux-headers-$(uname -r) build-essential dkms # > /dev/null 2>&1
         #sudo apt-get -y install linux-headers-generic linux-headers-$(uname -r) build-essential dkms
-      sudo ln -s /opt/VBoxGuestAdditions-4.3.28/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions 
+      sudo ln -s /opt/VBoxGuestAdditions-4.3.28/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions
       wget http://dlc-cdn.sun.com/virtualbox/4.3.28/VBoxGuestAdditions_4.3.28.iso # > /dev/null 2>&1
       sudo  mkdir /media/VBoxGuestAdditions
       sudo  mount -o loop,ro VBoxGuestAdditions_4.3.28.iso /media/VBoxGuestAdditions/
@@ -88,17 +88,17 @@ echo '##################################################'
         cd bash_alliases
         cp .bash_aliases  /home/vagrant/.bash_aliases
         cd /home/vagrant
-        source  /home/vagrant/.bash_alliases 
+        source  /home/vagrant/.bash_alliases
     fi
     if [ ! -f /home/vagrant/.tmux.conf ]; then
         git clone https://gist.github.com/8525360.git tmux_conf
         cd tmux_conf
         cp gistfile1.txt /home/vagrant/.tmux.conf
         cd /home/vagrant
-        source /home/vagrant/.bashrc 
+        source /home/vagrant/.bashrc
     fi
-     echo 'tm' >> /home/vagrant/.bashrc 
-     source /home/vagrant/.bashrc 
+     echo 'tm' >> /home/vagrant/.bashrc
+     source /home/vagrant/.bashrc
      sudo apt-get update > /dev/null 2>&1
 echo '#################################################################'
 echo '#  NPM: curl -sL https://deb.nodesource.com/setup | sudo bash - #'
@@ -118,7 +118,7 @@ echo '# simplehttpserver :sudo npm install simplehttpserver -g #'
 echo '#                                                        #'
 echo '##########################################################'
      cd /home/vagrant
-     sudo su -c "sudo npm install simplehttpserver -g > /dev/null 2>&1" vagrant 
+     sudo su -c "sudo npm install simplehttpserver -g > /dev/null 2>&1" vagrant
 echo '########################################################'
 echo '#  Ruby:                                               #'
 echo '#  SASS:  su -c "gem install sass" vagrant             #'
@@ -131,16 +131,16 @@ echo '########################################################'
      sudo wget --no-check-certificate https://raw.githubusercontent.com/joshfng/railsready/master/railsready.sh && echo 1 | bash  railsready.sh # > /dev/null 2>&1
      echo '#  SASS:  su -c "gem install sass" vagrant             #'
      sudo apt-get update # > /dev/null 2>&1
-     sudo su -c "gem install sass > /dev/null 2>&1" 
+     sudo su -c "gem install sass > /dev/null 2>&1"
      echo '#  Compass:  su -c "gem install comapass" vagrant      #'
      sudo apt-get update # > /dev/null 2>&1
-     sudo su -c "gem install compass > /dev/null 2>&1"  
+     sudo su -c "gem install compass > /dev/null 2>&1"
 #     echo '#  css_parser:  su -c "gem install css_parser" vagrant #'
 #     sudo apt-get update > /dev/null 2>&1
-#     sudo su -c "gem install css_parser > /dev/null 2>&1" 
+#     sudo su -c "gem install css_parser > /dev/null 2>&1"
 #     sudo apt-get update > /dev/null 2>&1
 echo '##########################################################'
-echo '#  Laravel/Homstead user logon:                                         #'
+echo '#  Laravel/Homstead user logon:                          #'
 echo '##########################################################'
      echo 'greeter-show-manual-login=true' >> /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
 
@@ -159,18 +159,43 @@ echo '##########################################################'
           ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
     done'
     sudo chsh -s /bin/zsh
-    echo '##########################################################'
-    echo '#   Chrome                                               #'
-    echo '##########################################################'
+echo '##########################################################'
+echo '#   Chrome                                               #'
+echo '##########################################################'
     cd /tmp
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     sudo dpkg -i google-chrome-stable_current_amd64.deb
     sudo apt-get -f -y install
     cd /home/vagrant
-    echo '##########################################################'
-    echo '##########################################################'
-     echo 'Thats all folks!'
-echo '########################################################'
+echo '##########################################################'
+echo '#   Install pkg-config                                   #'
+echo '##########################################################'
+    sudo sudo apt-get install pkg-config
+echo '##########################################################'
+echo '#   Install Golang                                       #'
+echo '##########################################################'
+    su -c "git clone https://go.googlesource.com/go.git" vagrant
+    cd go
+    git checkout go1.4.1
+    cd go/source
+    ./all.bash
+echo '##########################################################'
+echo '#   Install Mono                                         #'
+echo '##########################################################'
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+    echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+    sudo apt-get update
+echo '##########################################################'
+echo '#   Docker                                               #'
+echo '##########################################################'
+    cd /home/vagrant
+    sudo apt-get update
+    sudo apt-get install linux-image-generic-lts-trusty
+    sudo reboot
+    sudo wget -q0- https://get.docker.com/ | sh
+echo '##########################################################'
+echo '#   Thats all folks!                                     #'
+echo '##########################################################'
     date2=$(date +"%s")
     diff=$(($date2-$date1))
     echo "$(($diff / 60)) minutes and $(($diff % 60)) seconds elapsed."
