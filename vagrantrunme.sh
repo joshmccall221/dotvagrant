@@ -228,10 +228,9 @@ echo '##########################################################'
     curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
     chmod +x run.bash
     ./run.bash --template dockerfarm --host-ip 10.42.42.1
-echo '##########################################################'
-echo '#   Thats all folks!                                     #'
-echo '##########################################################'
->>>>>>> Installing Mono and attempting to fix the Go installation
+    echo '##########################################################'
+    echo 'Thats all folks!'
+    echo '########################################################'
     date2=$(date +"%s")
     diff=$(($date2-$date1))
     echo "$(($diff / 60)) minutes and $(($diff % 60)) seconds elapsed."
