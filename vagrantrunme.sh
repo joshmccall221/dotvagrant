@@ -260,7 +260,7 @@ echo '##########################################################'
     chmod +x run.bash
     ./run.bash --template dockerfarm --host-ip 10.42.42.1
   echo '##########################################################'
-  echo 'Thats all folks!'
+  echo '#       Thats all folks!'
   echo '########################################################'
     date2=$(date +"%s")
     diff=$(($date2-$date1))
