@@ -50,6 +50,11 @@ Vagrant.configure(2) do |config|
   #   # Display the VirtualBox GUI when booting the machine
      vb.gui = true
   #
+  # Enable ssh x11 forwarding : ssh -X ... set to true to enable.
+  # It is suggested to set vb.gui = false
+  # if you don't need the console while x forwarding is enabled
+  config.ssh.forward_x11 = true
+
   #   # Customize the amount of memory on the VM:
      vb.memory = "5025"
    end
