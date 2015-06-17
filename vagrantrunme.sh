@@ -174,24 +174,17 @@ echo '##########################################################'
 echo '##########################################################'
 echo '#   Install Golang                                       #'
 echo '##########################################################'
-    su -c "git clone --recursive clone https://go.googlesource.com/go" vagrant
+    su -c "git clone https://go.googlesource.com/go.git" vagrant
     cd go
     git checkout go1.4.1
     cd go/source
     ./all.bash
 echo '##########################################################'
-echo '#   Install F#                                           #'
+echo '#   Install Mono                                         #'
 echo '##########################################################'
-    cd /home/vagrant
-    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
     echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/user/mono/lib/
-    sudo apt-get install autoconf libtool pkg-config make git automake
-    git clone https://github.com/fsharp/fsharp
-    cd fsharp
-    ./autogen.sh --prefix /usr
-    make
-    sudo make install
+    sudo apt-get update
 echo '##########################################################'
 echo '#   Docker                                               #'
 echo '##########################################################'
