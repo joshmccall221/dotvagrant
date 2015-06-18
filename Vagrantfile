@@ -48,7 +48,7 @@ Vagrant.configure(2) do |config|
   #
    config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
-  #  vb.gui = true
+     vb.gui = true
   #
   # Enable ssh x11 forwarding : ssh -X ... set to true to enable.
   # It is suggested to set vb.gui = false
@@ -76,7 +76,7 @@ Vagrant.configure(2) do |config|
   #.
   #.
   #
-  config.vm.provision "shell", path: "vagrantrunme.sh"
+  #config.vm.provision "shell", path: "vagrantrunme.sh"
 #  config.vm.provision "chef_solo" do |chef|
 #    chef.add_recipe "golang"
 #    chef.add_recipe "chrome"
