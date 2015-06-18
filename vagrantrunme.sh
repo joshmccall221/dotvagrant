@@ -174,17 +174,11 @@ echo '##########################################################'
 echo '##########################################################'
 echo '#   Install Golang                                       #'
 echo '##########################################################'
-    su -c "git clone https://go.googlesource.com/go.git" vagrant
-    cd go
-    git checkout go1.4.1
-    cd go/source
-    ./all.bash
+    sudo apt-get install gccgo-go
 echo '##########################################################'
 echo '#   Install Java 8                                       #'
 echo '##########################################################'
-    sudo add-apt-repository ppa:webupd8team/java
-    sudo apt-get install oracle-java8-installer
-    sudo apt-get install oracle-java8-set-default
+    sudo apt-get install openjdk-8-jdk
 echo '##########################################################'
 echo '#   Install Mono                                         #'
 echo '##########################################################'
