@@ -228,9 +228,40 @@ echo '##########################################################'
     curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
     chmod +x run.bash
     ./run.bash --template dockerfarm --host-ip 10.42.42.1
+    cd /home/vagrant
+    mkdir -p ~/.zsh/completion
+    curl -L https://raw.github.com/felixr/docker-zsh-completion/master/_docker >  ~/.zsh/completion/_docker
+    exec zsh
+echo '##########################################################'
+echo '#   Weave - Microservice Discovery                       #'
+echo '##########################################################'
+    sudo curl -L git.io/weave -o /usr/local/bin/weave
+    sudo chmod a+x /usr/local/bin/weave
+echo '##########################################################'
+echo '#   Drone - Continuous Integration with Docker           #'
+echo '##########################################################'
+    wget downloads.drone.io/master/drone.deb
+    sudo dpkg -i drone.deb
+echo '##########################################################'
+echo '#   Tsuru - Open source Platform as a Service (PaaS)     #'
+echo '##########################################################'
+    echo 'Installing the Tsuru platfrom'
+    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash | bash
+    echo 'Building Tsuru Server Cluster'
+    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash > run.bash
+    chmod +x run.bash
+    ./run.bash --template server
+    echo 'Build a client connected to the server. This assumes the ip is 10.42.42.1'
+    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
+    chmod +x run.bash
+    ./run.bash --template client --host-ip 10.42.42.1
+    echo 'Build a docker node controlled by the server. This assumes the ip is 10.42.42.1'
+    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
+    chmod +x run.bash
+    ./run.bash --template dockerfarm --host-ip 10.42.42.1
   echo '##########################################################'
-  echo '#   Thats all folks!                                     #'
-  echo '##########################################################'
+  echo '#       Thats all folks!'
+  echo '########################################################'
     date2=$(date +"%s")
     diff=$(($date2-$date1))
     echo "$(($diff / 60)) minutes and $(($diff % 60)) seconds elapsed."
