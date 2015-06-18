@@ -76,14 +76,14 @@ Vagrant.configure(2) do |config|
   #.
   #.
   #
-  #config.vm.provision "shell", path: "vagrantrunme.sh"
-  config.vm.provision "chef_solo" do |chef|
-    chef.add_recipe "golang"
-    chef.add_recipe "chrome"
-    chef.add_recipe "java"
-    chef.add_recipe "mono"
-    chef.add_recipe "docker"
-  end
+  config.vm.provision "shell", path: "vagrantrunme.sh"
+#  config.vm.provision "chef_solo" do |chef|
+#    chef.add_recipe "golang"
+#    chef.add_recipe "chrome"
+#    chef.add_recipe "java"
+#    chef.add_recipe "mono"
+#    chef.add_recipe "docker"
+  #end
   #config.vm.provision "shell", path: "guestadditions.sh"
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
