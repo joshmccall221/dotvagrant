@@ -77,9 +77,11 @@ echo '######################################'
     if [ ! -f spf13.vim.sh ]; then
         su -c " curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh > /dev/null 2>&1" vagrant
     fi
-    echo 'set background=dark' >> /home/vagrant/.vimrc
-    echo 'let g:solarized_termcolors=16' >> /home/vagrant/.vimrc
-    echo 'color solarized' >> /home/vagrant/.vimrc
+    echo 'set background=dark' >> /home/vagrant/.vimrc.before
+    echo 'let g:solarized_termcolors=16' >> /home/vagrant/.vimrc.before
+#    echo 'colorscheme solarized' >> /home/vagrant/.vimrc.before
+    echo 'let g:airline_powerline_fonts = 1' >> /home/vagrant/.vimrc.before
+    echo 'set foldmethod=indent' >> /home/vagrant/.vimrc
 
     echo 'TERM="screen-256color-bce"' >> /home/vagrant/.profile 
 
@@ -168,97 +170,97 @@ echo '##########################################################'
 #    sudo apt-get -f -y install
 #    cd /home/vagrant
 #    echo '##########################################################'
-echo '##########################################################'
-echo '#   Install pkg-config                                   #'
-echo '##########################################################'
-    sudo sudo apt-get install pkg-config
-echo '##########################################################'
-echo '#   Install Golang                                       #'
-echo '##########################################################'
-    su -c "git clone https://go.googlesource.com/go.git" vagrant
-    cd go
-    git checkout go1.4.1
-    cd go/source
-    ./all.bash
-echo '##########################################################'
-echo '#   Install Mono                                         #'
-echo '##########################################################'
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-    echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-    sudo apt-get update
-echo '##########################################################'
-echo '#   Docker                                               #'
-echo '##########################################################'
-    cd /home/vagrant
-    sudo apt-get update
-    sudo apt-get install linux-image-generic-lts-trusty
-    sudo reboot
-    sudo wget -q0- https://get.docker.com/ | sh
-echo '##########################################################'
-echo '#   Docker Completion for ZSH                            #'
-echo '##########################################################'
-    cd /home/vagrant
-    mkdir -p ~/.zsh/completion
-    curl -L https://raw.github.com/felixr/docker-zsh-completion/master/_docker >  ~/.zsh/completion/_docker
-    exec zsh
-echo '##########################################################'
-echo '#   Weave - Microservice Discovery                       #'
-echo '##########################################################'
-    sudo curl -L git.io/weave -o /usr/local/bin/weave
-    sudo chmod a+x /usr/local/bin/weave
-echo '##########################################################'
-echo '#   Drone - Continuous Integration with Docker           #'
-echo '##########################################################'
-    wget downloads.drone.io/master/drone.deb
-    sudo dpkg -i drone.deb
-echo '##########################################################'
-echo '#   Tsuru - Open source Platform as a Service (PaaS)     #'
-echo '##########################################################'
-    echo 'Installing the Tsuru platfrom'
-    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash | bash
-    echo 'Building Tsuru Server Cluster'
-    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template server
-    echo 'Build a client connected to the server. This assumes the ip is 10.42.42.1'
-    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template client --host-ip 10.42.42.1
-    echo 'Build a docker node controlled by the server. This assumes the ip is 10.42.42.1'
-    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template dockerfarm --host-ip 10.42.42.1
-    cd /home/vagrant
-    mkdir -p ~/.zsh/completion
-    curl -L https://raw.github.com/felixr/docker-zsh-completion/master/_docker >  ~/.zsh/completion/_docker
-    exec zsh
-echo '##########################################################'
-echo '#   Weave - Microservice Discovery                       #'
-echo '##########################################################'
-    sudo curl -L git.io/weave -o /usr/local/bin/weave
-    sudo chmod a+x /usr/local/bin/weave
-echo '##########################################################'
-echo '#   Drone - Continuous Integration with Docker           #'
-echo '##########################################################'
-    wget downloads.drone.io/master/drone.deb
-    sudo dpkg -i drone.deb
-echo '##########################################################'
-echo '#   Tsuru - Open source Platform as a Service (PaaS)     #'
-echo '##########################################################'
-    echo 'Installing the Tsuru platfrom'
-    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash | bash
-    echo 'Building Tsuru Server Cluster'
-    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template server
-    echo 'Build a client connected to the server. This assumes the ip is 10.42.42.1'
-    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template client --host-ip 10.42.42.1
-    echo 'Build a docker node controlled by the server. This assumes the ip is 10.42.42.1'
-    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template dockerfarm --host-ip 10.42.42.1
+#echo '##########################################################'
+#echo '#   Install pkg-config                                   #'
+#echo '##########################################################'
+#    sudo sudo apt-get install pkg-config
+#echo '##########################################################'
+#echo '#   Install Golang                                       #'
+#echo '##########################################################'
+#    su -c "git clone https://go.googlesource.com/go.git" vagrant
+#    cd go
+#    git checkout go1.4.1
+#    cd go/source
+#    ./all.bash
+#echo '##########################################################'
+#echo '#   Install Mono                                         #'
+#echo '##########################################################'
+#    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+#    echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+#    sudo apt-get update
+#echo '##########################################################'
+#echo '#   Docker                                               #'
+#echo '##########################################################'
+#    cd /home/vagrant
+#    sudo apt-get update
+#    sudo apt-get install linux-image-generic-lts-trusty
+#    sudo reboot
+#    sudo wget -q0- https://get.docker.com/ | sh
+#echo '##########################################################'
+#echo '#   Docker Completion for ZSH                            #'
+#echo '##########################################################'
+#    cd /home/vagrant
+#    mkdir -p ~/.zsh/completion
+#    curl -L https://raw.github.com/felixr/docker-zsh-completion/master/_docker >  ~/.zsh/completion/_docker
+#    exec zsh
+#echo '##########################################################'
+#echo '#   Weave - Microservice Discovery                       #'
+#echo '##########################################################'
+#    sudo curl -L git.io/weave -o /usr/local/bin/weave
+#    sudo chmod a+x /usr/local/bin/weave
+#echo '##########################################################'
+#echo '#   Drone - Continuous Integration with Docker           #'
+#echo '##########################################################'
+#    wget downloads.drone.io/master/drone.deb
+#    sudo dpkg -i drone.deb
+#echo '##########################################################'
+#echo '#   Tsuru - Open source Platform as a Service (PaaS)     #'
+#echo '##########################################################'
+#    echo 'Installing the Tsuru platfrom'
+#    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash | bash
+#    echo 'Building Tsuru Server Cluster'
+#    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash > run.bash
+#    chmod +x run.bash
+#    ./run.bash --template server
+#    echo 'Build a client connected to the server. This assumes the ip is 10.42.42.1'
+#    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
+#    chmod +x run.bash
+#    ./run.bash --template client --host-ip 10.42.42.1
+#    echo 'Build a docker node controlled by the server. This assumes the ip is 10.42.42.1'
+#    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
+#    chmod +x run.bash
+#    ./run.bash --template dockerfarm --host-ip 10.42.42.1
+#    cd /home/vagrant
+#    mkdir -p ~/.zsh/completion
+#    curl -L https://raw.github.com/felixr/docker-zsh-completion/master/_docker >  ~/.zsh/completion/_docker
+#    exec zsh
+#echo '##########################################################'
+#echo '#   Weave - Microservice Discovery                       #'
+#echo '##########################################################'
+#    sudo curl -L git.io/weave -o /usr/local/bin/weave
+#    sudo chmod a+x /usr/local/bin/weave
+#echo '##########################################################'
+#echo '#   Drone - Continuous Integration with Docker           #'
+#echo '##########################################################'
+#    wget downloads.drone.io/master/drone.deb
+#    sudo dpkg -i drone.deb
+#echo '##########################################################'
+#echo '#   Tsuru - Open source Platform as a Service (PaaS)     #'
+#echo '##########################################################'
+#    echo 'Installing the Tsuru platfrom'
+#    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash | bash
+#    echo 'Building Tsuru Server Cluster'
+#    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash > run.bash
+#    chmod +x run.bash
+#    ./run.bash --template server
+#    echo 'Build a client connected to the server. This assumes the ip is 10.42.42.1'
+#    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
+#    chmod +x run.bash
+#    ./run.bash --template client --host-ip 10.42.42.1
+#    echo 'Build a docker node controlled by the server. This assumes the ip is 10.42.42.1'
+#    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
+#    chmod +x run.bash
+#    ./run.bash --template dockerfarm --host-ip 10.42.42.1
   echo '##########################################################'
   echo '#       Thats all folks!'
   echo '########################################################'
