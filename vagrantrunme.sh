@@ -183,17 +183,22 @@ echo '##########################################################'
 echo '##########################################################'
 echo '#   Install Mono                                         #'
 echo '##########################################################'
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-    echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-    sudo apt-get update
+    #sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF &
+    #echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list &
+    #sudo apt-get update
+
+    sudo apt-get -y install mono-complete
 echo '##########################################################'
 echo '#   Docker                                               #'
 echo '##########################################################'
-    cd /home/vagrant
+    # cd /home/vagrant &
+    # sudo apt-get update &
+    # sudo apt-get install linux-image-generic-lts-trusty &
+    # sudo reboot &
+    # sudo wget -q0- https://get.docker.com/ | sh
+
     sudo apt-get update
-    sudo apt-get install linux-image-generic-lts-trusty
-    sudo reboot
-    sudo wget -q0- https://get.docker.com/ | sh
+    sudo apt-get install -y docker.io
 echo '##########################################################'
 echo '#   Docker Completion for ZSH                            #'
 echo '##########################################################'
