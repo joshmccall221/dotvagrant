@@ -15,7 +15,7 @@ date1=$(date +"%s")
 #  echo '##########################################################'
 #       sudo apt-get -y install linux-headers-$(uname -r) build-essential dkms # > /dev/null 2>&1
 #         #sudo apt-get -y install linux-headers-generic linux-headers-$(uname -r) build-essential dkms
-#       sudo ln -s /opt/VBoxGuestAdditions-4.3.28/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions 
+#       sudo ln -s /opt/VBoxGuestAdditions-4.3.28/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions
 #       wget http://dlc-cdn.sun.com/virtualbox/4.3.28/VBoxGuestAdditions_4.3.28.iso # > /dev/null 2>&1
 #       sudo  mkdir /media/VBoxGuestAdditions
 #       sudo  mount -o loop,ro VBoxGuestAdditions_4.3.28.iso /media/VBoxGuestAdditions/
@@ -81,7 +81,7 @@ echo '######################################'
     echo 'let g:solarized_termcolors=16' >> /home/vagrant/.vimrc
     echo 'color solarized' >> /home/vagrant/.vimrc
 
-    echo 'TERM="screen-256color-bce"' >> /home/vagrant/.profile 
+    echo 'TERM="screen-256color-bce"' >> /home/vagrant/.profile
 
 echo '##################################################'
 echo '#   tmux: https://gist.github.com/diginc/8531848 #'
@@ -121,7 +121,7 @@ echo '##################################################'
 # echo '#                                                        #'
 # echo '##########################################################'
 #      cd /home/vagrant
-#      sudo su -c "sudo npm install simplehttpserver -g > /dev/null 2>&1" vagrant 
+#      sudo su -c "sudo npm install simplehttpserver -g > /dev/null 2>&1" vagrant
 # echo '########################################################'
 # echo '#  Ruby:                                               #'
 # echo '#  SASS:  su -c "gem install sass" vagrant             #'
@@ -134,13 +134,13 @@ echo '##################################################'
 #      sudo wget --no-check-certificate https://raw.githubusercontent.com/joshfng/railsready/master/railsready.sh && echo 1 | bash  railsready.sh # > /dev/null 2>&1
 #      echo '#  SASS:  su -c "gem install sass" vagrant             #'
 #      sudo apt-get update # > /dev/null 2>&1
-#      sudo su -c "gem install sass > /dev/null 2>&1" 
+#      sudo su -c "gem install sass > /dev/null 2>&1"
 #      echo '#  Compass:  su -c "gem install comapass" vagrant      #'
 #      sudo apt-get update # > /dev/null 2>&1
-#      sudo su -c "gem install compass > /dev/null 2>&1"  
+#      sudo su -c "gem install compass > /dev/null 2>&1"
 #      echo '#  css_parser:  su -c "gem install css_parser" vagrant #'
 #      sudo apt-get update > /dev/null 2>&1
-#      sudo su -c "gem install css_parser > /dev/null 2>&1" 
+#      sudo su -c "gem install css_parser > /dev/null 2>&1"
 #      sudo apt-get update > /dev/null 2>&1
 # echo '##########################################################'
 # echo '#  Laravel/Homstead user logon:                          #'
@@ -155,7 +155,7 @@ echo '##########################################################'
     if [ ! -f /home/vagrant/.zshrc ]; then
     touch /home/vagrant/.zshrc
     fi
-    su -c "sudo /vagrant/zsh" vagrant 
+    su -c "sudo /vagrant/zsh" vagrant
     cat /home/vagrant/.bash_aliases >> /home/vagrant/.zshrc
     echo 'tm'>> /home/vagrant/.zshrc
     chsh -s /bin/zsh vagrant
@@ -175,25 +175,30 @@ echo '##########################################################'
 echo '##########################################################'
 echo '#   Install Golang                                       #'
 echo '##########################################################'
-    su -c "git clone https://go.googlesource.com/go.git" vagrant
-    cd go
-    git checkout go1.4.1
-    cd go/source
-    ./all.bash
+    sudo apt-get -y install gccgo-go
+echo '##########################################################'
+echo '#   Install Java 8                                       #'
+echo '##########################################################'
+    sudo apt-get -y install openjdk-8-jdk
 echo '##########################################################'
 echo '#   Install Mono                                         #'
 echo '##########################################################'
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-    echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-    sudo apt-get update
+    #sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF &
+    #echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list &
+    #sudo apt-get update
+
+    sudo apt-get -y install mono-complete
 echo '##########################################################'
 echo '#   Docker                                               #'
 echo '##########################################################'
-    cd /home/vagrant
+    # cd /home/vagrant &
+    # sudo apt-get update &
+    # sudo apt-get install linux-image-generic-lts-trusty &
+    # sudo reboot &
+    # sudo wget -q0- https://get.docker.com/ | sh
+
     sudo apt-get update
-    sudo apt-get install linux-image-generic-lts-trusty
-    sudo reboot
-    sudo wget -q0- https://get.docker.com/ | sh
+    sudo apt-get install -y docker.io
 echo '##########################################################'
 echo '#   Docker Completion for ZSH                            #'
 echo '##########################################################'
@@ -201,64 +206,6 @@ echo '##########################################################'
     mkdir -p ~/.zsh/completion
     curl -L https://raw.github.com/felixr/docker-zsh-completion/master/_docker >  ~/.zsh/completion/_docker
     exec zsh
-echo '##########################################################'
-echo '#   Weave - Microservice Discovery                       #'
-echo '##########################################################'
-    sudo curl -L git.io/weave -o /usr/local/bin/weave
-    sudo chmod a+x /usr/local/bin/weave
-echo '##########################################################'
-echo '#   Drone - Continuous Integration with Docker           #'
-echo '##########################################################'
-    wget downloads.drone.io/master/drone.deb
-    sudo dpkg -i drone.deb
-echo '##########################################################'
-echo '#   Tsuru - Open source Platform as a Service (PaaS)     #'
-echo '##########################################################'
-    echo 'Installing the Tsuru platfrom'
-    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash | bash
-    echo 'Building Tsuru Server Cluster'
-    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template server
-    echo 'Build a client connected to the server. This assumes the ip is 10.42.42.1'
-    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template client --host-ip 10.42.42.1
-    echo 'Build a docker node controlled by the server. This assumes the ip is 10.42.42.1'
-    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template dockerfarm --host-ip 10.42.42.1
-    cd /home/vagrant
-    mkdir -p ~/.zsh/completion
-    curl -L https://raw.github.com/felixr/docker-zsh-completion/master/_docker >  ~/.zsh/completion/_docker
-    exec zsh
-echo '##########################################################'
-echo '#   Weave - Microservice Discovery                       #'
-echo '##########################################################'
-    sudo curl -L git.io/weave -o /usr/local/bin/weave
-    sudo chmod a+x /usr/local/bin/weave
-echo '##########################################################'
-echo '#   Drone - Continuous Integration with Docker           #'
-echo '##########################################################'
-    wget downloads.drone.io/master/drone.deb
-    sudo dpkg -i drone.deb
-echo '##########################################################'
-echo '#   Tsuru - Open source Platform as a Service (PaaS)     #'
-echo '##########################################################'
-    echo 'Installing the Tsuru platfrom'
-    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash | bash
-    echo 'Building Tsuru Server Cluster'
-    curl -sL https://raw.githubusercontent.com/tsuru/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template server
-    echo 'Build a client connected to the server. This assumes the ip is 10.42.42.1'
-    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template client --host-ip 10.42.42.1
-    echo 'Build a docker node controlled by the server. This assumes the ip is 10.42.42.1'
-    curl -sL https://raw.githubusercontent.com/tsuru/now/master/run.bash > run.bash
-    chmod +x run.bash
-    ./run.bash --template dockerfarm --host-ip 10.42.42.1
   echo '##########################################################'
   echo '#       Thats all folks!'
   echo '########################################################'

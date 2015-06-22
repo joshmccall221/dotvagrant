@@ -1,0 +1,14 @@
+[Unit]
+Description=Docker Socket for the API
+PartOf=docker.service
+
+[Socket]
+<% Array(node['docker']['host']).each do |socket| -%>
+ListenStream=<%= socket.gsub(/^unix:\/\//,'').gsub(/^tcp:\/\//,'').gsub(/^fd:\/\//,'') %>
+<% end -%>
+SocketMode=0660
+SocketUser=root
+SocketGroup=<%= node['docker']['group'] || 'root' %>
+
+[Install]
+WantedBy=sockets.target
