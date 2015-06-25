@@ -45,10 +45,11 @@ http://laravel.com/docs/5.0/homestead
  * Ruby: https://github.com/joshfng/railsready
 
 # Getting Started:
-### To speed up your vagrant reloads with vagrant-cachier to locally store apt, deb, etc. Make sure you have Vagrant 1.4+ and run : 
+### Tip:
+To speed up your vagrant reloads with vagrant-cachier to locally store apt, deb, etc. Make sure you have Vagrant 1.4+ and run : 
 vagrant plugin install vagrant-cachier
 
-### To install and run 'dotVagrant' --> Run this: 
+### To run 'dotVagrant' Run this: 
 git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && vagrant up && vagrant reload
 
 #### Resources:
