@@ -86,6 +86,14 @@ echo '#   Install pkg-config                                   #'
 echo '##########################################################'
     sudo sudo apt-get install pkg-config
 echo '##########################################################'
+echo '#   Install NGREP                                        #'
+echo '##########################################################'
+    sudo apt-get -y install ngrep
+echo '##########################################################'
+echo '#   Install TCPDUMP                                      #'
+echo '##########################################################'
+    sudo apt-get -y install tcpdump
+echo '##########################################################'
 echo '#   Install Golang                                       #'
 echo '##########################################################'
     sudo apt-get -y install gccgo-go
@@ -106,13 +114,17 @@ echo '#   Install Node                                         #'
 echo '##########################################################'
     sudo apt-get -y install nodejs
 echo '##########################################################'
-echo '#   Install NGREP                                        #'
+echo '#   Install Strongloop                                   #'
 echo '##########################################################'
-    sudo apt-get -y install ngrep
+    sudo npm install -g strongloop
 echo '##########################################################'
-echo '#   Install TCPDUMP                                      #'
+echo '#   Install Typescript                                   #'
 echo '##########################################################'
-    sudo apt-get -y install tcpdump
+    sudo npm install -g typescript
+echo '##########################################################'
+echo '#   Install Coffee Script                                #'
+echo '##########################################################'
+    sudo npm install -g coffee-script
 echo '##########################################################'
 echo '#       Thats all folks!                                 #'
 echo '##########################################################'
