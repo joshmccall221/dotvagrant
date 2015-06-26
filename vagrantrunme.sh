@@ -114,10 +114,6 @@ echo '#   Install Node                                         #'
 echo '##########################################################'
     sudo apt-get -y install nodejs
 echo '##########################################################'
-echo '#   Install Strongloop                                   #'
-echo '##########################################################'
-    sudo npm install -g strongloop
-echo '##########################################################'
 echo '#   Install Typescript                                   #'
 echo '##########################################################'
     sudo npm install -g typescript
