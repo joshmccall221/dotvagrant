@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
 
-  config.vm.box = "laravel/homestead"
+  config.vm.box = "alexgleason/elementaryos-freya64"
   #config.vm.box = "hashicorp/precise64"
   #config.vm.box = "pussinboots/ubuntu-truly-full"
   # Disable automatic box update checking. If you disable this, then
@@ -48,7 +48,7 @@ Vagrant.configure(2) do |config|
   #
    config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
-  #  vb.gui = true
+     vb.gui = true
   #
   # Enable ssh x11 forwarding : ssh -X ... set to true to enable.
   # It is suggested to set vb.gui = false
