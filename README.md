@@ -45,7 +45,11 @@ http://laravel.com/docs/5.0/homestead
  * Ruby: https://github.com/joshfng/railsready
 
 # Getting Started:
-### Run this: 
+### Tip:
+To speed up your vagrant reloads with vagrant-cachier to locally store apt, deb, etc. Make sure you have Vagrant 1.4+ and run : 
+vagrant plugin install vagrant-cachier
+
+### To run 'dotVagrant' Run this: 
 git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && vagrant up && vagrant reload
 
 #### Resources:
@@ -57,8 +61,11 @@ git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && 
 * https://gist.github.com/fundon/1150782
 * http://blog.csanchez.org/2012/05/03/automatically-download-and-install-virtualbox-guest-additions-in-vagrant/
 * https://github.com/mitchellh/vagrant/issues/3341
+* https://github.com/fgrehm/vagrant-cachier
+
 #### zsh powerlines:
 https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme
+
 
 ###Centos
 * http://apetec.com/linux/InstallVIM.htm
