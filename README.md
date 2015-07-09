@@ -66,6 +66,23 @@ git clone https://github.com/joshmccall221/dotvagrant.git && cd ./dotvagrant && 
 #### zsh powerlines:
 https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme
 
+###Homage:
+All things dot files:
+* https://dotfiles.github.io/
+
+List of all things: 
+* https://github.com/webpro/awesome-dotfiles
+* https://github.com/sindresorhus/awesome
+
+Noteworthy (Most of the dot files listed here and in the above list are designed for OSX, for OSX vagrant vagriant see below): 
+* https://github.com/skwp/dotfiles
+* https://github.com/mathiasbynens/dotfiles
+* https://github.com/atomantic/dotfiles
+ 
+**note**: these projects are great for developers who are mac fans (this guy) but leaves your windows work pc out to dry thus adding emphasis for the *need* of this project (dotfiles contained in a vagrant). 
+
+OSX vagrant: 
+* https://github.com/AndrewDryga/vagrant-box-osx <========== vagrant osx!!!!!!!!
 
 ###Centos
 * http://apetec.com/linux/InstallVIM.htm
