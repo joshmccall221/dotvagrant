@@ -12,8 +12,8 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-
-  config.vm.box = "laravel/homestead"
+ config.vm.box = "alexgleason/elementaryos-freya64"
+  #config.vm.box = "laravel/homestead"
   #config.vm.box = "hashicorp/precise64"
   #config.vm.box = "pussinboots/ubuntu-truly-full"
   # Disable automatic box update checking. If you disable this, then
@@ -48,7 +48,7 @@ Vagrant.configure(2) do |config|
   #
    config.vm.provider "virtualbox" do |vb|
   #   # Display the VirtualBox GUI when booting the machine
-  #  vb.gui = true
+    vb.gui = true
   #
   # Enable ssh x11 forwarding : ssh -X ... set to true to enable.
   # It is suggested to set vb.gui = false
@@ -61,7 +61,9 @@ Vagrant.configure(2) do |config|
   #
   # View the documentation for the provider you are using for more
   # information on available options.
-
+  if Vagrant.has_plugin?("vagrant-cachier")
+        config.cache.scope = :box
+  end
   # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
   # such as FTP and Heroku are also available. See the documentation at
   # https://docs.vagrantup.com/v2/push/atlas.html for more information.
@@ -76,6 +78,7 @@ Vagrant.configure(2) do |config|
   #.
   #.
   #
+  #config.vm.provision "shell", path: "dragons"
   config.vm.provision "shell", path: "vagrantrunme.sh"
   #config.vm.provision "shell", path: "guestadditions.sh"
   #   sudo apt-get update
