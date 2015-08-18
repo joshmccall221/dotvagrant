@@ -84,7 +84,13 @@ echo '######################################'
     echo 'set foldmethod=indent' >> /home/vagrant/.vimrc
 
     echo 'TERM="screen-256color-bce"' >> /home/vagrant/.profile 
-
+echo '######################################'
+echo '#   Powerlines                #'
+echo '######################################'
+    git clone https://github.com/powerline/fonts
+    cd fonts
+    ./install.sh
+    cd ~
 echo '##################################################'
 echo '#   tmux: https://gist.github.com/diginc/8531848 #'
 echo '##################################################'
@@ -105,19 +111,19 @@ echo '##################################################'
      echo 'tm' >> /home/vagrant/.bashrc
      source /home/vagrant/.bashrc
      sudo apt-get update > /dev/null 2>&1
-# echo '#################################################################'
-# echo '#  NPM: curl -sL https://deb.nodesource.com/setup | sudo bash - #'
-# echo '#################################################################'
-#      cd /home/vagrant
-#      curl -sL https://deb.nodesource.com/setup | sudo bash -
-#      sudo apt-get -y install  nodejs # > /dev/null 2>&1
-#      sudo apt-get update # > /dev/null 2>&1
-# echo '##################################################'
-# echo '#  http-server: npm install http-server -g       #'
-# echo '##################################################'
-#      cd /home/vagrant
-#      sudo npm install http-server -g # > /dev/null 2>&1
-#      sudo apt-get update # > /dev/null 2>&1
+ echo '#################################################################'
+ echo '#  NPM: curl -sL https://deb.nodesource.com/setup | sudo bash - #'
+ echo '#################################################################'
+      cd /home/vagrant
+      curl -sL https://deb.nodesource.com/setup | sudo bash -
+      sudo apt-get -y install  nodejs # > /dev/null 2>&1
+      sudo apt-get update # > /dev/null 2>&1
+ echo '##################################################'
+ echo '#  http-server: npm install http-server -g       #'
+ echo '##################################################'
+      cd /home/vagrant
+      sudo npm install http-server -g # > /dev/null 2>&1
+      sudo apt-get update # > /dev/null 2>&1
 # echo '##########################################################'
 # echo '# simplehttpserver :sudo npm install simplehttpserver -g #'
 # echo '#                                                        #'
