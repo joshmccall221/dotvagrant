@@ -87,11 +87,7 @@ echo '######################################'
 echo '######################################'
 echo '#   Powerlines                #'
 echo '######################################'
-    cd /home/vagrant
-    git clone https://github.com/powerline/fonts
-    cd fonts
-    ./install.sh
-    cd ~
+    git clone https://github.com/powerline/fonts /home/vagrant/.fonts
 echo '##################################################'
 echo '#   tmux: https://gist.github.com/diginc/8531848 #'
 echo '##################################################'
