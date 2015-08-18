@@ -87,6 +87,7 @@ echo '######################################'
 echo '######################################'
 echo '#   Powerlines                #'
 echo '######################################'
+    cd /home/vagrant
     git clone https://github.com/powerline/fonts
     cd fonts
     ./install.sh
