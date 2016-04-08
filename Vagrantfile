@@ -5,6 +5,9 @@
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
+
+HTTP_PROXY = "http://proxyv.dpn.deere.com:81"
+
 Vagrant.configure(2) do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
@@ -39,6 +42,10 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
+   config.proxy.http = HTTP_PROXY
+   config.proxy.https = HTTP_PROXY
+   config.proxy.no_proxy = ".deere.com,.tal.deere.com,.axiom.deere.com,.jdnet.deere.com,localhost,127.0.0.1/32,10.0.0.0/8"
+
    config.vm.synced_folder "../", "/vagrant_data"
    config.vm.synced_folder "../dotvagrant/", "/dotvagrant"
    config.vm.synced_folder "~", "/user_home"

@@ -71,12 +71,24 @@ echo '######################################'
      eval `dircolors ~/.dircolors`
      echo 'cd /home/vagrant'
      cd /home/vagrant
+#echo '######################################'
+#echo '#   Solarized for vim                #'
+#echo '######################################'
+#    if [ ! -f spf13.vim.sh ]; then
+#        su -c " curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh > /dev/null 2>&1" vagrant
+#    fi
 echo '######################################'
-echo '#   Solarized for vim                #'
+echo '#   NeoBundle                        #'
 echo '######################################'
-    if [ ! -f spf13.vim.sh ]; then
-        su -c " curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh > /dev/null 2>&1" vagrant
-    fi
+    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | bash
+echo '######################################'
+echo '#   dotfiles                         #'
+echo '######################################'
+    cd ~
+    git clone https://github.com/joshmccall221/dotfiles.git
+    cd ./dotfiles
+    bash ./symlink.sh
+
     echo 'set background=dark' >> /home/vagrant/.vimrc.before
     echo 'let g:solarized_termcolors=16' >> /home/vagrant/.vimrc.before
 #    echo 'colorscheme solarized' >> /home/vagrant/.vimrc.before
@@ -88,25 +100,25 @@ echo '######################################'
 echo '#   Powerlines                #'
 echo '######################################'
     git clone https://github.com/powerline/fonts /home/vagrant/.fonts
-echo '##################################################'
-echo '#   tmux: https://gist.github.com/diginc/8531848 #'
-echo '##################################################'
-    if [ ! -f /home/vagrant/.bash_alliases  ]; then
-        git clone https://gist.github.com/b329c4a84a274c906aa6.git bash_alliases
-        cd bash_alliases
-        cp .bash_aliases  /home/vagrant/.bash_aliases
-        cd /home/vagrant
-        source  /home/vagrant/.bash_alliases
-    fi
-    if [ ! -f /home/vagrant/.tmux.conf ]; then
-        git clone https://gist.github.com/8525360.git tmux_conf
-        cd tmux_conf
-        cp gistfile1.txt /home/vagrant/.tmux.conf
-        cd /home/vagrant
-        source /home/vagrant/.bashrc
-    fi
-     echo 'tm' >> /home/vagrant/.bashrc
-     source /home/vagrant/.bashrc
+#echo '##################################################'
+#echo '#   tmux: https://gist.github.com/diginc/8531848 #'
+#echo '##################################################'
+#    if [ ! -f /home/vagrant/.bash_alliases  ]; then
+#        git clone https://gist.github.com/b329c4a84a274c906aa6.git bash_alliases
+#        cd bash_alliases
+#        cp .bash_aliases  /home/vagrant/.bash_aliases
+#        cd /home/vagrant
+#        source  /home/vagrant/.bash_alliases
+#    fi
+#    if [ ! -f /home/vagrant/.tmux.conf ]; then
+#        git clone https://gist.github.com/8525360.git tmux_conf
+#        cd tmux_conf
+#        cp gistfile1.txt /home/vagrant/.tmux.conf
+#        cd /home/vagrant
+#        source /home/vagrant/.bashrc
+#    fi
+#     echo 'tm' >> /home/vagrant/.bashrc
+#     source /home/vagrant/.bashrc
      sudo apt-get update > /dev/null 2>&1
  echo '#################################################################'
  echo '#  NPM: curl -sL https://deb.nodesource.com/setup | sudo bash - #'
