@@ -48,6 +48,15 @@ echo '##########################################'
 #     wget https://dl.google.com/linux/direct/google-chrome-stable_current_i386.deb > /dev/null 2>&1
 #     sudo dpkg -i google-chrome-stable_current_i386.deb > /dev/null 2>&1
 #     sudo apt-get -f install > /dev/null 2>&1
+#    echo '##########################################################'
+#    echo '#   Chrome                                               #'
+#    echo '##########################################################'
+#    cd /tmp
+#    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+#    sudo dpkg -i google-chrome-stable_current_amd64.deb
+#    sudo apt-get -f -y install
+#    cd /home/vagrant
+#    echo '##########################################################'
 echo '######################################'
 echo '#   Solarized for vim and terminal   #'
 echo '######################################'
@@ -71,23 +80,23 @@ echo '######################################'
      eval `dircolors ~/.dircolors`
      echo 'cd /home/vagrant'
      cd /home/vagrant
+echo '######################################'
+echo '#   Solarized for vim                #'
+echo '######################################'
+    if [ ! -f spf13.vim.sh ]; then
+        su -c " curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh > /dev/null 2>&1" vagrant
+    fi
 #echo '######################################'
-#echo '#   Solarized for vim                #'
+#echo '#   NeoBundle                        #'
 #echo '######################################'
-#    if [ ! -f spf13.vim.sh ]; then
-#        su -c " curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh > /dev/null 2>&1" vagrant
-#    fi
-echo '######################################'
-echo '#   NeoBundle                        #'
-echo '######################################'
-    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | bash
-echo '######################################'
-echo '#   dotfiles                         #'
-echo '######################################'
-    cd ~
-    git clone https://github.com/joshmccall221/dotfiles.git
-    cd ./dotfiles
-    bash ./symlink.sh
+#    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | bash
+#echo '######################################'
+#echo '#   dotfiles                         #'
+#echo '######################################'
+#    cd ~
+#    git clone https://github.com/joshmccall221/dotfiles.git
+#    cd ./dotfiles
+#    bash ./symlink.sh
 
     echo 'set background=dark' >> /home/vagrant/.vimrc.before
     echo 'let g:solarized_termcolors=16' >> /home/vagrant/.vimrc.before
@@ -100,55 +109,67 @@ echo '######################################'
 echo '#   Powerlines                #'
 echo '######################################'
     git clone https://github.com/powerline/fonts /home/vagrant/.fonts
-#echo '##################################################'
-#echo '#   tmux: https://gist.github.com/diginc/8531848 #'
-#echo '##################################################'
-#    if [ ! -f /home/vagrant/.bash_alliases  ]; then
-#        git clone https://gist.github.com/b329c4a84a274c906aa6.git bash_alliases
-#        cd bash_alliases
-#        cp .bash_aliases  /home/vagrant/.bash_aliases
-#        cd /home/vagrant
-#        source  /home/vagrant/.bash_alliases
-#    fi
-#    if [ ! -f /home/vagrant/.tmux.conf ]; then
-#        git clone https://gist.github.com/8525360.git tmux_conf
-#        cd tmux_conf
-#        cp gistfile1.txt /home/vagrant/.tmux.conf
-#        cd /home/vagrant
-#        source /home/vagrant/.bashrc
-#    fi
-#     echo 'tm' >> /home/vagrant/.bashrc
-#     source /home/vagrant/.bashrc
+echo '##################################################'
+echo '#   tmux: https://gist.github.com/diginc/8531848 #'
+echo '##################################################'
+    if [ ! -f /home/vagrant/.bash_alliases  ]; then
+        git clone https://gist.github.com/b329c4a84a274c906aa6.git bash_alliases
+        cd bash_alliases
+        cp .bash_aliases  /home/vagrant/.bash_aliases
+        cd /home/vagrant
+        source  /home/vagrant/.bash_alliases
+    fi
+    if [ ! -f /home/vagrant/.tmux.conf ]; then
+        git clone https://gist.github.com/8525360.git tmux_conf
+        cd tmux_conf
+        cp gistfile1.txt /home/vagrant/.tmux.conf
+        cd /home/vagrant
+        source /home/vagrant/.bashrc
+    fi
+     echo 'tm' >> /home/vagrant/.bashrc
+     source /home/vagrant/.bashrc
      sudo apt-get update > /dev/null 2>&1
- echo '#################################################################'
- echo '#  NPM: curl -sL https://deb.nodesource.com/setup | sudo bash - #'
- echo '#################################################################'
-      cd /home/vagrant
-      curl -sL https://deb.nodesource.com/setup | sudo bash -
-      sudo apt-get -y install  nodejs # > /dev/null 2>&1
-      sudo apt-get update # > /dev/null 2>&1
- echo '##################################################'
- echo '#  http-server: npm install http-server -g       #'
- echo '##################################################'
-      cd /home/vagrant
-      sudo npm install http-server -g # > /dev/null 2>&1
-      sudo apt-get update # > /dev/null 2>&1
+echo '##########################################################'
+echo '#   zsh                                                  #'
+echo '##########################################################'
+    #http://codurance.com/2015/03/16/installing-zprezto-a-quick-guide/
+    sudo apt-get -y install zsh
+    if [ ! -f /home/vagrant/.zshrc ]; then
+    touch /home/vagrant/.zshrc
+    fi
+    su -c "sudo /vagrant/zsh" vagrant 
+    cat /home/vagrant/.bash_aliases >> /home/vagrant/.zshrc
+    echo 'tm'>> /home/vagrant/.zshrc
+    chsh -s /bin/zsh vagrant
+# echo '#################################################################'
+# echo '#  NPM: curl -sL https://deb.nodesource.com/setup | sudo bash - #'
+# echo '#################################################################'
+#      cd /home/vagrant
+#      curl -sL https://deb.nodesource.com/setup | sudo bash -
+#      sudo apt-get -y install  nodejs # > /dev/null 2>&1
+#      sudo apt-get update # > /dev/null 2>&1
+# echo '##################################################'
+# echo '#  http-server: npm install http-server -g       #'
+# echo '##################################################'
+#      cd /home/vagrant
+#      sudo npm install http-server -g # > /dev/null 2>&1
+#      sudo apt-get update # > /dev/null 2>&1
 # echo '##########################################################'
 # echo '# simplehttpserver :sudo npm install simplehttpserver -g #'
 # echo '#                                                        #'
 # echo '##########################################################'
 #      cd /home/vagrant
 #      sudo su -c "sudo npm install simplehttpserver -g > /dev/null 2>&1" vagrant 
-# echo '########################################################'
-# echo '#  Ruby:                                               #'
-# echo '#  SASS:  su -c "gem install sass" vagrant             #'
-# echo '#  Compass:  su -c "gem install comapass" vagrant      #'
-# echo '#  css_parser:  su -c "gem install css_parser" vagrant #'
-# echo '########################################################'
-#      cd /home/vagrant
-#      echo '#  Ruby: apt-get install rbenv                         #'
-#      #sudo apt-get -y install rbenv  > /dev/null 2>&1
-#      sudo wget --no-check-certificate https://raw.githubusercontent.com/joshfng/railsready/master/railsready.sh && echo 1 | bash  railsready.sh # > /dev/null 2>&1
+ echo '########################################################'
+ echo '#  Ruby:                                               #'
+ echo '#  SASS:  su -c "gem install sass" vagrant             #'
+ echo '#  Compass:  su -c "gem install comapass" vagrant      #'
+ echo '#  css_parser:  su -c "gem install css_parser" vagrant #'
+ echo '########################################################'
+      cd /home/vagrant
+      echo '#  Ruby: apt-get install rbenv                         #'
+      #sudo apt-get -y install rbenv  > /dev/null 2>&1
+      sudo wget --no-check-certificate https://raw.githubusercontent.com/joshfng/railsready/master/railsready.sh && echo 1 | bash  railsready.sh # > /dev/null 2>&1
 #      echo '#  SASS:  su -c "gem install sass" vagrant             #'
 #      sudo apt-get update # > /dev/null 2>&1
 #      sudo su -c "gem install sass > /dev/null 2>&1" 
@@ -164,27 +185,6 @@ echo '######################################'
 # echo '##########################################################'
 #      echo 'greeter-show-manual-login=true' >> /usr/share/lightdm/lightdm.conf.d/50-ubuntu.conf
 
-echo '##########################################################'
-echo '#   zsh                                                  #'
-echo '##########################################################'
-    #http://codurance.com/2015/03/16/installing-zprezto-a-quick-guide/
-    sudo apt-get -y install zsh
-    if [ ! -f /home/vagrant/.zshrc ]; then
-    touch /home/vagrant/.zshrc
-    fi
-    su -c "sudo /vagrant/zsh" vagrant 
-    cat /home/vagrant/.bash_aliases >> /home/vagrant/.zshrc
-    echo 'tm'>> /home/vagrant/.zshrc
-    chsh -s /bin/zsh vagrant
-#    echo '##########################################################'
-#    echo '#   Chrome                                               #'
-#    echo '##########################################################'
-#    cd /tmp
-#    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-#    sudo dpkg -i google-chrome-stable_current_amd64.deb
-#    sudo apt-get -f -y install
-#    cd /home/vagrant
-#    echo '##########################################################'
 #echo '##########################################################'
 #echo '#   Install pkg-config                                   #'
 #echo '##########################################################'
