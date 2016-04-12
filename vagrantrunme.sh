@@ -15,7 +15,7 @@ date1=$(date +"%s")
 #  echo '##########################################################'
 #       sudo apt-get -y install linux-headers-$(uname -r) build-essential dkms # > /dev/null 2>&1
 #         #sudo apt-get -y install linux-headers-generic linux-headers-$(uname -r) build-essential dkms
-#       sudo ln -s /opt/VBoxGuestAdditions-4.3.28/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions 
+#       sudo ln -s /opt/VBoxGuestAdditions-4.3.28/lib/VBoxGuestAdditions /usr/lib/VBoxGuestAdditions
 #       wget http://dlc-cdn.sun.com/virtualbox/4.3.28/VBoxGuestAdditions_4.3.28.iso # > /dev/null 2>&1
 #       sudo  mkdir /media/VBoxGuestAdditions
 #       sudo  mount -o loop,ro VBoxGuestAdditions_4.3.28.iso /media/VBoxGuestAdditions/
@@ -61,7 +61,7 @@ echo '######################################'
 echo '#   Solarized for vim and terminal   #'
 echo '######################################'
     if [ ! -d "./gnome-terminal-colors-solarized"  ]; then
-        echo 'sudo git clone https://github.com/Anthony25/gnome-terminal-colors-solarized'
+        echo 'git clone https://github.com/Anthony25/gnome-terminal-colors-solarized'
         su -c "git clone https://github.com/Anthony25/gnome-terminal-colors-solarized" vagrant
     fi
 echo '######################################'
@@ -80,23 +80,23 @@ echo '######################################'
      eval `dircolors ~/.dircolors`
      echo 'cd /home/vagrant'
      cd /home/vagrant
+#echo '######################################'
+#echo '#   Solarized for vim                #'
+#echo '######################################'
+#    if [ ! -f spf13.vim.sh ]; then
+#        su -c " curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh > /dev/null 2>&1" vagrant
+#    fi
 echo '######################################'
-echo '#   Solarized for vim                #'
+echo '#   NeoBundle                        #'
 echo '######################################'
-    if [ ! -f spf13.vim.sh ]; then
-        su -c " curl https://j.mp/spf13-vim3 -L > spf13-vim.sh && sh spf13-vim.sh > /dev/null 2>&1" vagrant
-    fi
-#echo '######################################'
-#echo '#   NeoBundle                        #'
-#echo '######################################'
-#    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | bash
-#echo '######################################'
-#echo '#   dotfiles                         #'
-#echo '######################################'
-#    cd ~
-#    git clone https://github.com/joshmccall221/dotfiles.git
-#    cd ./dotfiles
-#    bash ./symlink.sh
+
+echo '######################################'
+echo '#   dotfiles                         #'
+echo '######################################'
+   cd /home/vagrant
+    git clone https://github.com/joshmccall221/dotfiles.git
+    cd ./dotfiles
+    bash ./symlink.sh
 
     echo 'set background=dark' >> /home/vagrant/.vimrc.before
     echo 'let g:solarized_termcolors=16' >> /home/vagrant/.vimrc.before
@@ -104,31 +104,31 @@ echo '######################################'
     echo 'let g:airline_powerline_fonts = 1' >> /home/vagrant/.vimrc.before
     echo 'set foldmethod=indent' >> /home/vagrant/.vimrc
 
-    echo 'TERM="screen-256color-bce"' >> /home/vagrant/.profile 
+    echo 'TERM="screen-256color-bce"' >> /home/vagrant/.profile
 echo '######################################'
 echo '#   Powerlines                #'
 echo '######################################'
     git clone https://github.com/powerline/fonts /home/vagrant/.fonts
-echo '##################################################'
-echo '#   tmux: https://gist.github.com/diginc/8531848 #'
-echo '##################################################'
-    if [ ! -f /home/vagrant/.bash_alliases  ]; then
-        git clone https://gist.github.com/b329c4a84a274c906aa6.git bash_alliases
-        cd bash_alliases
-        cp .bash_aliases  /home/vagrant/.bash_aliases
-        cd /home/vagrant
-        source  /home/vagrant/.bash_alliases
-    fi
-    if [ ! -f /home/vagrant/.tmux.conf ]; then
-        git clone https://gist.github.com/8525360.git tmux_conf
-        cd tmux_conf
-        cp gistfile1.txt /home/vagrant/.tmux.conf
-        cd /home/vagrant
-        source /home/vagrant/.bashrc
-    fi
-     echo 'tm' >> /home/vagrant/.bashrc
-     source /home/vagrant/.bashrc
-     sudo apt-get update > /dev/null 2>&1
+#echo '##################################################'
+#echo '#   tmux: https://gist.github.com/diginc/8531848 #'
+#echo '##################################################'
+#    if [ ! -f /home/vagrant/.bash_alliases  ]; then
+#        git clone https://gist.github.com/b329c4a84a274c906aa6.git bash_alliases
+#        cd bash_alliases
+#        cp .bash_aliases  /home/vagrant/.bash_aliases
+#        cd /home/vagrant
+#        source  /home/vagrant/.bash_alliases
+#    fi
+#    if [ ! -f /home/vagrant/.tmux.conf ]; then
+#        git clone https://gist.github.com/8525360.git tmux_conf
+#        cd tmux_conf
+#        cp gistfile1.txt /home/vagrant/.tmux.conf
+#        cd /home/vagrant
+#        source /home/vagrant/.bashrc
+#    fi
+#     echo 'tm' >> /home/vagrant/.bashrc
+#     source /home/vagrant/.bashrc
+#     sudo apt-get update > /dev/null 2>&1
 echo '##########################################################'
 echo '#   zsh                                                  #'
 echo '##########################################################'
@@ -137,10 +137,11 @@ echo '##########################################################'
     if [ ! -f /home/vagrant/.zshrc ]; then
     touch /home/vagrant/.zshrc
     fi
-    su -c "sudo /vagrant/zsh" vagrant 
-    cat /home/vagrant/.bash_aliases >> /home/vagrant/.zshrc
-    echo 'tm'>> /home/vagrant/.zshrc
-    chsh -s /bin/zsh vagrant
+#    su -c "sudo /vagrant/zsh" vagrant
+#    cat /home/vagrant/.bash_aliases >> /home/vagrant/.zshrc
+    #echo 'zsh' >> /home/vagrant/.bash_alliases
+    echo 'tmux' >> /home/vagrant/.zshrc
+#    chsh -s /bin/zsh vagrant
 # echo '#################################################################'
 # echo '#  NPM: curl -sL https://deb.nodesource.com/setup | sudo bash - #'
 # echo '#################################################################'
@@ -159,7 +160,7 @@ echo '##########################################################'
 # echo '#                                                        #'
 # echo '##########################################################'
 #      cd /home/vagrant
-#      sudo su -c "sudo npm install simplehttpserver -g > /dev/null 2>&1" vagrant 
+#      sudo su -c "sudo npm install simplehttpserver -g > /dev/null 2>&1" vagrant
  echo '########################################################'
  echo '#  Ruby:                                               #'
  echo '#  SASS:  su -c "gem install sass" vagrant             #'
@@ -168,17 +169,21 @@ echo '##########################################################'
  echo '########################################################'
       cd /home/vagrant
       echo '#  Ruby: apt-get install rbenv                         #'
+      gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+      \curl -sSL https://get.rvm.io | sudo bash
+
+
       #sudo apt-get -y install rbenv  > /dev/null 2>&1
-      sudo wget --no-check-certificate https://raw.githubusercontent.com/joshfng/railsready/master/railsready.sh && echo 1 | bash  railsready.sh # > /dev/null 2>&1
+#      sudo wget --no-check-certificate https://raw.githubusercontent.com/joshfng/railsready/master/railsready.sh && echo 1 | bash  railsready.sh # > /dev/null 2>&1
 #      echo '#  SASS:  su -c "gem install sass" vagrant             #'
 #      sudo apt-get update # > /dev/null 2>&1
-#      sudo su -c "gem install sass > /dev/null 2>&1" 
+#      sudo su -c "gem install sass > /dev/null 2>&1"
 #      echo '#  Compass:  su -c "gem install comapass" vagrant      #'
 #      sudo apt-get update # > /dev/null 2>&1
-#      sudo su -c "gem install compass > /dev/null 2>&1"  
+#      sudo su -c "gem install compass > /dev/null 2>&1"
 #      echo '#  css_parser:  su -c "gem install css_parser" vagrant #'
 #      sudo apt-get update > /dev/null 2>&1
-#      sudo su -c "gem install css_parser > /dev/null 2>&1" 
+#      sudo su -c "gem install css_parser > /dev/null 2>&1"
 #      sudo apt-get update > /dev/null 2>&1
 # echo '##########################################################'
 # echo '#  Laravel/Homstead user logon:                          #'

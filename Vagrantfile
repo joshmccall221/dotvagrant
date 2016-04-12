@@ -42,9 +42,9 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-   config.proxy.http = HTTP_PROXY
-   config.proxy.https = HTTP_PROXY
-   config.proxy.no_proxy = ".deere.com,.tal.deere.com,.axiom.deere.com,.jdnet.deere.com,localhost,127.0.0.1/32,10.0.0.0/8"
+   #config.proxy.http = HTTP_PROXY
+   #config.proxy.https = HTTP_PROXY
+   #config.proxy.no_proxy = ".deere.com,.tal.deere.com,.axiom.deere.com,.jdnet.deere.com,localhost,127.0.0.1/32,10.0.0.0/8"
 
    config.vm.synced_folder "../", "/vagrant_data"
    config.vm.synced_folder "../dotvagrant/", "/dotvagrant"
@@ -86,7 +86,7 @@ Vagrant.configure(2) do |config|
   #.
   #
   #config.vm.provision "shell", path: "dragons"
-  config.vm.provision "shell", path: "vagrantrunme.sh"
+  #config.vm.provision "shell", path: "vagrantrunme.sh"
   #config.vm.provision "shell", path: "guestadditions.sh"
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
