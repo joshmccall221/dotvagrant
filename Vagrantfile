@@ -15,7 +15,9 @@ Vagrant.configure(2) do |config|
 
   # config.vm.box = "laravel/sail"
   # config.vm.box = "laravel/homestead"
-  config.vm.box = "ubuntu/focal64"
+  # config.vm.box = "ubuntu/focal64"
+  config.vm.box = "cloud-image/ubuntu-24.04"
+  
   # config.vm.box = "peru/ubuntu-20.04-desktop"
   # bento/ubuntu-20.04
   
@@ -93,6 +95,19 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
   apt-get update
   DEBIAN_FRONTEND=noninteractive apt-get install -y ubuntu-desktop
+
+
+# Add Microsoft repository
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/
+sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/microsoft.gpg] https://packages.microsoft.com/ubuntu/24.04/prod noble main" > /etc/apt/sources.list.d/microsoft-ubuntu-noble-prod.list'
+
+# Install packages
+sudo apt update
+sudo apt install -y microsoft-identity-broker intune-portal
+
+# Enable service
+systemctl enable --user --now intune-agent.timer
 SHELL
 # config.vm.provision "shell", path: "vagrantrunme.sh"
 #  config.vm.provision "chef_solo" do |chef|
