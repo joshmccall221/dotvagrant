@@ -13,7 +13,12 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
 
-  config.vm.box = "laravel/homestead"
+  # config.vm.box = "laravel/sail"
+  # config.vm.box = "laravel/homestead"
+  config.vm.box = "ubuntu/focal64"
+  # config.vm.box = "peru/ubuntu-20.04-desktop"
+  # bento/ubuntu-20.04
+  
   #config.vm.box = "hashicorp/precise64"
   #config.vm.box = "pussinboots/ubuntu-truly-full"
   # Disable automatic box update checking. If you disable this, then
@@ -84,7 +89,12 @@ Vagrant.configure(2) do |config|
   #.
   #.
   #
-config.vm.provision "shell", path: "vagrantrunme.sh"
+
+  config.vm.provision "shell", inline: <<-SHELL
+  apt-get update
+  DEBIAN_FRONTEND=noninteractive apt-get install -y ubuntu-desktop
+SHELL
+# config.vm.provision "shell", path: "vagrantrunme.sh"
 #  config.vm.provision "chef_solo" do |chef|
 #    chef.add_recipe "golang"
 #    chef.add_recipe "chrome"
